@@ -1,0 +1,4 @@
+framework module CloneableCore {
+    header "CloneableCore-Swift.h"
+    export *
+}

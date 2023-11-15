@@ -1,0 +1,2208 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AnyCodable"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnyCodable",
+        "printedName": "AnyCodable",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodableAAV5valueypvp",
+            "mangledName": "$s10AnyCodableAAV5valueypvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 0,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodableAAV5valueypvg",
+                "mangledName": "$s10AnyCodableAAV5valueypvg",
+                "moduleName": "AnyCodable",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyCodable",
+                "printedName": "AnyCodable.AnyCodable",
+                "usr": "s:10AnyCodableAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodableAAVyABxSgclufc",
+            "mangledName": "$s10AnyCodableAAVyABxSgclufc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<T>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AnyCodable",
+                "printedName": "AnyCodable.AnyCodable",
+                "usr": "s:10AnyCodableAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AnyCodable",
+                "printedName": "AnyCodable.AnyCodable",
+                "usr": "s:10AnyCodableAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AnyCodableAAV2eeoiySbAB_ABtFZ",
+            "mangledName": "$s10AnyCodableAAV2eeoiySbAB_ABtFZ",
+            "moduleName": "AnyCodable",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodableAAV11descriptionSSvp",
+            "mangledName": "$s10AnyCodableAAV11descriptionSSvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodableAAV11descriptionSSvg",
+                "mangledName": "$s10AnyCodableAAV11descriptionSSvg",
+                "moduleName": "AnyCodable",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "debugDescription",
+            "printedName": "debugDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodableAAV16debugDescriptionSSvp",
+            "mangledName": "$s10AnyCodableAAV16debugDescriptionSSvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodableAAV16debugDescriptionSSvg",
+                "mangledName": "$s10AnyCodableAAV16debugDescriptionSSvg",
+                "moduleName": "AnyCodable",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AnyCodableAAV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s10AnyCodableAAV4hash4intoys6HasherVz_tF",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodableAAV9hashValueSivp",
+            "mangledName": "$s10AnyCodableAAV9hashValueSivp",
+            "moduleName": "AnyCodable",
+            "implicit": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodableAAV9hashValueSivg",
+                "mangledName": "$s10AnyCodableAAV9hashValueSivg",
+                "moduleName": "AnyCodable",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:10AnyCodableAAV",
+        "mangledName": "$s10AnyCodableAAV",
+        "moduleName": "AnyCodable",
+        "declAttributes": [
+          "AccessControl",
+          "Frozen",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_AnyEncodable",
+            "printedName": "_AnyEncodable",
+            "usr": "s:10AnyCodable01_A9EncodableP",
+            "mangledName": "$s10AnyCodable01_A9EncodableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_AnyDecodable",
+            "printedName": "_AnyDecodable",
+            "usr": "s:10AnyCodable01_A9DecodableP",
+            "mangledName": "$s10AnyCodable01_A9DecodableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByNilLiteral",
+            "printedName": "ExpressibleByNilLiteral",
+            "usr": "s:s23ExpressibleByNilLiteralP",
+            "mangledName": "$ss23ExpressibleByNilLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByBooleanLiteral",
+            "printedName": "ExpressibleByBooleanLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "BooleanLiteralType",
+                "printedName": "BooleanLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s27ExpressibleByBooleanLiteralP",
+            "mangledName": "$ss27ExpressibleByBooleanLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByIntegerLiteral",
+            "printedName": "ExpressibleByIntegerLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "IntegerLiteralType",
+                "printedName": "IntegerLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s27ExpressibleByIntegerLiteralP",
+            "mangledName": "$ss27ExpressibleByIntegerLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByFloatLiteral",
+            "printedName": "ExpressibleByFloatLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "FloatLiteralType",
+                "printedName": "FloatLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s25ExpressibleByFloatLiteralP",
+            "mangledName": "$ss25ExpressibleByFloatLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByStringLiteral",
+            "printedName": "ExpressibleByStringLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "StringLiteralType",
+                "printedName": "StringLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s26ExpressibleByStringLiteralP",
+            "mangledName": "$ss26ExpressibleByStringLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByExtendedGraphemeClusterLiteral",
+            "printedName": "ExpressibleByExtendedGraphemeClusterLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ExtendedGraphemeClusterLiteralType",
+                "printedName": "ExtendedGraphemeClusterLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s43ExpressibleByExtendedGraphemeClusterLiteralP",
+            "mangledName": "$ss43ExpressibleByExtendedGraphemeClusterLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByUnicodeScalarLiteral",
+            "printedName": "ExpressibleByUnicodeScalarLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "UnicodeScalarLiteralType",
+                "printedName": "UnicodeScalarLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s33ExpressibleByUnicodeScalarLiteralP",
+            "mangledName": "$ss33ExpressibleByUnicodeScalarLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByStringInterpolation",
+            "printedName": "ExpressibleByStringInterpolation",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "StringInterpolation",
+                "printedName": "StringInterpolation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefaultStringInterpolation",
+                    "printedName": "Swift.DefaultStringInterpolation",
+                    "usr": "s:s26DefaultStringInterpolationV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s32ExpressibleByStringInterpolationP",
+            "mangledName": "$ss32ExpressibleByStringInterpolationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByArrayLiteral",
+            "printedName": "ExpressibleByArrayLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ArrayLiteralElement",
+                "printedName": "ArrayLiteralElement",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s25ExpressibleByArrayLiteralP",
+            "mangledName": "$ss25ExpressibleByArrayLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByDictionaryLiteral",
+            "printedName": "ExpressibleByDictionaryLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Key",
+                "printedName": "Key",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Value",
+                "printedName": "Value",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s30ExpressibleByDictionaryLiteralP",
+            "mangledName": "$ss30ExpressibleByDictionaryLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AnyCodable"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnyDecodable",
+        "printedName": "AnyDecodable",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable0A9DecodableV5valueypvp",
+            "mangledName": "$s10AnyCodable0A9DecodableV5valueypvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 0,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable0A9DecodableV5valueypvg",
+                "mangledName": "$s10AnyCodable0A9DecodableV5valueypvg",
+                "moduleName": "AnyCodable",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyDecodable",
+                "printedName": "AnyCodable.AnyDecodable",
+                "usr": "s:10AnyCodable0A9DecodableV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable0A9DecodableVyACxSgclufc",
+            "mangledName": "$s10AnyCodable0A9DecodableVyACxSgclufc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<T>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AnyDecodable",
+                "printedName": "AnyCodable.AnyDecodable",
+                "usr": "s:10AnyCodable0A9DecodableV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AnyDecodable",
+                "printedName": "AnyCodable.AnyDecodable",
+                "usr": "s:10AnyCodable0A9DecodableV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AnyCodable0A9DecodableV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s10AnyCodable0A9DecodableV2eeoiySbAC_ACtFZ",
+            "moduleName": "AnyCodable",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable0A9DecodableV11descriptionSSvp",
+            "mangledName": "$s10AnyCodable0A9DecodableV11descriptionSSvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable0A9DecodableV11descriptionSSvg",
+                "mangledName": "$s10AnyCodable0A9DecodableV11descriptionSSvg",
+                "moduleName": "AnyCodable",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "debugDescription",
+            "printedName": "debugDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable0A9DecodableV16debugDescriptionSSvp",
+            "mangledName": "$s10AnyCodable0A9DecodableV16debugDescriptionSSvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable0A9DecodableV16debugDescriptionSSvg",
+                "mangledName": "$s10AnyCodable0A9DecodableV16debugDescriptionSSvg",
+                "moduleName": "AnyCodable",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AnyCodable0A9DecodableV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s10AnyCodable0A9DecodableV4hash4intoys6HasherVz_tF",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable0A9DecodableV9hashValueSivp",
+            "mangledName": "$s10AnyCodable0A9DecodableV9hashValueSivp",
+            "moduleName": "AnyCodable",
+            "implicit": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable0A9DecodableV9hashValueSivg",
+                "mangledName": "$s10AnyCodable0A9DecodableV9hashValueSivg",
+                "moduleName": "AnyCodable",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:10AnyCodable0A9DecodableV",
+        "mangledName": "$s10AnyCodable0A9DecodableV",
+        "moduleName": "AnyCodable",
+        "declAttributes": [
+          "AccessControl",
+          "Frozen",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_AnyDecodable",
+            "printedName": "_AnyDecodable",
+            "usr": "s:10AnyCodable01_A9DecodableP",
+            "mangledName": "$s10AnyCodable01_A9DecodableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_AnyDecodable",
+        "printedName": "_AnyDecodable",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable01_A9DecodableP5valueypvp",
+            "mangledName": "$s10AnyCodable01_A9DecodableP5valueypvp",
+            "moduleName": "AnyCodable",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable01_A9DecodableP5valueypvg",
+                "mangledName": "$s10AnyCodable01_A9DecodableP5valueypvg",
+                "moduleName": "AnyCodable",
+                "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyDecodable>",
+                "sugared_genericSig": "<Self where Self : AnyCodable._AnyDecodable>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_1_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9DecodablePyxqd__Sgclufc",
+            "mangledName": "$s10AnyCodable01_A9DecodablePyxqd__Sgclufc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : AnyCodable._AnyDecodable>",
+            "sugared_genericSig": "<Self, T where Self : AnyCodable._AnyDecodable>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9DecodablePAAE4fromxs7Decoder_p_tKcfc",
+            "mangledName": "$s10AnyCodable01_A9DecodablePAAE4fromxs7Decoder_p_tKcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyDecodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyDecodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "init_kind": "Convenience"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:10AnyCodable01_A9DecodableP",
+        "mangledName": "$s10AnyCodable01_A9DecodableP",
+        "moduleName": "AnyCodable",
+        "declAttributes": [
+          "UsableFromInline"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AnyCodable"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnyEncodable",
+        "printedName": "AnyEncodable",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable0A9EncodableV5valueypvp",
+            "mangledName": "$s10AnyCodable0A9EncodableV5valueypvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "fixedbinaryorder": 0,
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable0A9EncodableV5valueypvg",
+                "mangledName": "$s10AnyCodable0A9EncodableV5valueypvg",
+                "moduleName": "AnyCodable",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyEncodable",
+                "printedName": "AnyCodable.AnyEncodable",
+                "usr": "s:10AnyCodable0A9EncodableV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_0_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable0A9EncodableVyACxSgclufc",
+            "mangledName": "$s10AnyCodable0A9EncodableVyACxSgclufc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0>",
+            "sugared_genericSig": "<T>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AnyEncodable",
+                "printedName": "AnyCodable.AnyEncodable",
+                "usr": "s:10AnyCodable0A9EncodableV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AnyEncodable",
+                "printedName": "AnyCodable.AnyEncodable",
+                "usr": "s:10AnyCodable0A9EncodableV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AnyCodable0A9EncodableV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s10AnyCodable0A9EncodableV2eeoiySbAC_ACtFZ",
+            "moduleName": "AnyCodable",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable0A9EncodableV11descriptionSSvp",
+            "mangledName": "$s10AnyCodable0A9EncodableV11descriptionSSvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable0A9EncodableV11descriptionSSvg",
+                "mangledName": "$s10AnyCodable0A9EncodableV11descriptionSSvg",
+                "moduleName": "AnyCodable",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "debugDescription",
+            "printedName": "debugDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable0A9EncodableV16debugDescriptionSSvp",
+            "mangledName": "$s10AnyCodable0A9EncodableV16debugDescriptionSSvp",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable0A9EncodableV16debugDescriptionSSvg",
+                "mangledName": "$s10AnyCodable0A9EncodableV16debugDescriptionSSvg",
+                "moduleName": "AnyCodable",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AnyCodable0A9EncodableV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s10AnyCodable0A9EncodableV4hash4intoys6HasherVz_tF",
+            "moduleName": "AnyCodable",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable0A9EncodableV9hashValueSivp",
+            "mangledName": "$s10AnyCodable0A9EncodableV9hashValueSivp",
+            "moduleName": "AnyCodable",
+            "implicit": true,
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable0A9EncodableV9hashValueSivg",
+                "mangledName": "$s10AnyCodable0A9EncodableV9hashValueSivg",
+                "moduleName": "AnyCodable",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:10AnyCodable0A9EncodableV",
+        "mangledName": "$s10AnyCodable0A9EncodableV",
+        "moduleName": "AnyCodable",
+        "declAttributes": [
+          "AccessControl",
+          "Frozen",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_AnyEncodable",
+            "printedName": "_AnyEncodable",
+            "usr": "s:10AnyCodable01_A9EncodableP",
+            "mangledName": "$s10AnyCodable01_A9EncodableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByNilLiteral",
+            "printedName": "ExpressibleByNilLiteral",
+            "usr": "s:s23ExpressibleByNilLiteralP",
+            "mangledName": "$ss23ExpressibleByNilLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByBooleanLiteral",
+            "printedName": "ExpressibleByBooleanLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "BooleanLiteralType",
+                "printedName": "BooleanLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s27ExpressibleByBooleanLiteralP",
+            "mangledName": "$ss27ExpressibleByBooleanLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByIntegerLiteral",
+            "printedName": "ExpressibleByIntegerLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "IntegerLiteralType",
+                "printedName": "IntegerLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s27ExpressibleByIntegerLiteralP",
+            "mangledName": "$ss27ExpressibleByIntegerLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByFloatLiteral",
+            "printedName": "ExpressibleByFloatLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "FloatLiteralType",
+                "printedName": "FloatLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Double",
+                    "printedName": "Swift.Double",
+                    "usr": "s:Sd"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s25ExpressibleByFloatLiteralP",
+            "mangledName": "$ss25ExpressibleByFloatLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByStringLiteral",
+            "printedName": "ExpressibleByStringLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "StringLiteralType",
+                "printedName": "StringLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s26ExpressibleByStringLiteralP",
+            "mangledName": "$ss26ExpressibleByStringLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByExtendedGraphemeClusterLiteral",
+            "printedName": "ExpressibleByExtendedGraphemeClusterLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ExtendedGraphemeClusterLiteralType",
+                "printedName": "ExtendedGraphemeClusterLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s43ExpressibleByExtendedGraphemeClusterLiteralP",
+            "mangledName": "$ss43ExpressibleByExtendedGraphemeClusterLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByUnicodeScalarLiteral",
+            "printedName": "ExpressibleByUnicodeScalarLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "UnicodeScalarLiteralType",
+                "printedName": "UnicodeScalarLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s33ExpressibleByUnicodeScalarLiteralP",
+            "mangledName": "$ss33ExpressibleByUnicodeScalarLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByStringInterpolation",
+            "printedName": "ExpressibleByStringInterpolation",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "StringInterpolation",
+                "printedName": "StringInterpolation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DefaultStringInterpolation",
+                    "printedName": "Swift.DefaultStringInterpolation",
+                    "usr": "s:s26DefaultStringInterpolationV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s32ExpressibleByStringInterpolationP",
+            "mangledName": "$ss32ExpressibleByStringInterpolationP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByArrayLiteral",
+            "printedName": "ExpressibleByArrayLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ArrayLiteralElement",
+                "printedName": "ArrayLiteralElement",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s25ExpressibleByArrayLiteralP",
+            "mangledName": "$ss25ExpressibleByArrayLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByDictionaryLiteral",
+            "printedName": "ExpressibleByDictionaryLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Key",
+                "printedName": "Key",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "Value",
+                "printedName": "Value",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s30ExpressibleByDictionaryLiteralP",
+            "mangledName": "$ss30ExpressibleByDictionaryLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "_AnyEncodable",
+        "printedName": "_AnyEncodable",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AnyCodable01_A9EncodableP5valueypvp",
+            "mangledName": "$s10AnyCodable01_A9EncodableP5valueypvp",
+            "moduleName": "AnyCodable",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AnyCodable01_A9EncodableP5valueypvg",
+                "mangledName": "$s10AnyCodable01_A9EncodableP5valueypvg",
+                "moduleName": "AnyCodable",
+                "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+                "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "τ_1_0?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_1_0"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePyxqd__Sgclufc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePyxqd__Sgclufc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0, τ_1_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self, T where Self : AnyCodable._AnyEncodable>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE6encode2toys7Encoder_p_tKF",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nilLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE10nilLiteralxyt_tcfc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE10nilLiteralxyt_tcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(booleanLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE14booleanLiteralxSb_tcfc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE14booleanLiteralxSb_tcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(integerLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE14integerLiteralxSi_tcfc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE14integerLiteralxSi_tcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(floatLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE12floatLiteralxSd_tcfc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE12floatLiteralxSd_tcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(extendedGraphemeClusterLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE30extendedGraphemeClusterLiteralxSS_tcfc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE30extendedGraphemeClusterLiteralxSS_tcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(stringLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE13stringLiteralxSS_tcfc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE13stringLiteralxSS_tcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(arrayLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE12arrayLiteralxypd_tcfc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE12arrayLiteralxypd_tcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(dictionaryLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[(Swift.AnyHashable, Any)]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.AnyHashable, Any)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AnyHashable",
+                        "printedName": "Swift.AnyHashable",
+                        "usr": "s:s11AnyHashableV"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AnyCodable01_A9EncodablePAAE17dictionaryLiteralxs0A8HashableV_yptd_tcfc",
+            "mangledName": "$s10AnyCodable01_A9EncodablePAAE17dictionaryLiteralxs0A8HashableV_yptd_tcfc",
+            "moduleName": "AnyCodable",
+            "genericSig": "<τ_0_0 where τ_0_0 : AnyCodable._AnyEncodable>",
+            "sugared_genericSig": "<Self where Self : AnyCodable._AnyEncodable>",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Convenience"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:10AnyCodable01_A9EncodableP",
+        "mangledName": "$s10AnyCodable01_A9EncodableP",
+        "moduleName": "AnyCodable",
+        "declAttributes": [
+          "UsableFromInline"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyCodable.swift",
+      "kind": "BooleanLiteral",
+      "offset": 834,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyCodable.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2422,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyCodable.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2463,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyCodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3031,
+      "length": 39,
+      "value": "\"AnyCodable(\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyCodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3068,
+      "length": 1,
+      "value": "\")\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyCodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3107,
+      "length": 28,
+      "value": "\"AnyCodable(\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyCodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3133,
+      "length": 1,
+      "value": "\")\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyDecodable.swift",
+      "kind": "StringLiteral",
+      "offset": 2303,
+      "length": 38,
+      "value": "\"AnyDecodable value cannot be decoded\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyDecodable.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2609,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyDecodable.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3941,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyDecodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4513,
+      "length": 41,
+      "value": "\"AnyDecodable(\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyDecodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4552,
+      "length": 1,
+      "value": "\")\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyDecodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4591,
+      "length": 30,
+      "value": "\"AnyDecodable(\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyDecodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4619,
+      "length": 1,
+      "value": "\")\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3177,
+      "length": 38,
+      "value": "\"AnyEncodable value cannot be encoded\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3521,
+      "length": 3,
+      "value": "\"B\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3592,
+      "length": 3,
+      "value": "\"c\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3663,
+      "length": 3,
+      "value": "\"s\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3735,
+      "length": 3,
+      "value": "\"i\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3740,
+      "length": 3,
+      "value": "\"l\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3812,
+      "length": 3,
+      "value": "\"q\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3884,
+      "length": 3,
+      "value": "\"C\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 3956,
+      "length": 3,
+      "value": "\"S\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4029,
+      "length": 3,
+      "value": "\"I\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4034,
+      "length": 3,
+      "value": "\"L\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4107,
+      "length": 3,
+      "value": "\"Q\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4180,
+      "length": 3,
+      "value": "\"f\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4252,
+      "length": 3,
+      "value": "\"d\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 4429,
+      "length": 60,
+      "value": "\"NSNumber cannot be encoded because its type is not handled\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4785,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "BooleanLiteral",
+      "offset": 6110,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 6682,
+      "length": 41,
+      "value": "\"AnyEncodable(\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 6721,
+      "length": 1,
+      "value": "\")\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 6760,
+      "length": 30,
+      "value": "\"AnyEncodable(\""
+    },
+    {
+      "filePath": "\/Users\/tylercollins\/Development\/CloneableCore\/.build\/checkouts\/AnyCodable\/Sources\/AnyCodable\/AnyEncodable.swift",
+      "kind": "StringLiteral",
+      "offset": 6788,
+      "length": 1,
+      "value": "\")\""
+    }
+  ]
+}

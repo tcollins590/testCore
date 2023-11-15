@@ -1,0 +1,4 @@
+framework module AnyCodable {
+    header "AnyCodable-Swift.h"
+    export *
+}

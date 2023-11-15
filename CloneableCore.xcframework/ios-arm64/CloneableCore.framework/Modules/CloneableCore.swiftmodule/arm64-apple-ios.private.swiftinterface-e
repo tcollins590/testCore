@@ -1,0 +1,1678 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target arm64-apple-ios17.0 -enable-objc-interop -cxx-interoperability-mode=default -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CloneableCore
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
+import AnyCodable
+import Cloneable_Swift_Client
+import Foundation
+import JXKit
+import SQLite
+import Swift
+import SystemConfiguration
+import ZIPFoundation
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+extension CloneableCore.XML {
+  @dynamicMemberLookup public enum Accessor : Swift.CustomStringConvertible, Swift.Sequence {
+    case singleElement(CloneableCore.XML.Element)
+    case sequence([CloneableCore.XML.Element])
+    case failure(any Swift.Error)
+    public init(_ element: CloneableCore.XML.Element)
+    public init(_ sequence: [CloneableCore.XML.Element])
+    public init(_ error: any Swift.Error)
+    public subscript(dynamicMember member: Swift.String) -> CloneableCore.XML.Accessor {
+      get
+    }
+    public subscript(path: Swift.Array<any CloneableCore.XMLSubscriptType>) -> CloneableCore.XML.Accessor {
+      get
+    }
+    public subscript(path: any CloneableCore.XMLSubscriptType...) -> CloneableCore.XML.Accessor {
+      get
+    }
+    public var name: Swift.String? {
+      get
+    }
+    public var text: Swift.String? {
+      get
+      set
+    }
+    public var bool: Swift.Bool? {
+      get
+    }
+    public var url: Foundation.URL? {
+      get
+    }
+    public var int: Swift.Int? {
+      get
+    }
+    public var double: Swift.Double? {
+      get
+    }
+    public var attributes: [Swift.String : Swift.String] {
+      get
+      set
+    }
+    public var all: [CloneableCore.XML.Element]? {
+      get
+    }
+    public var names: [Swift.String]? {
+      get
+    }
+    public var error: (any Swift.Error)? {
+      get
+    }
+    public var element: CloneableCore.XML.Element? {
+      get
+    }
+    public var last: CloneableCore.XML.Accessor {
+      get
+    }
+    public var first: CloneableCore.XML.Accessor {
+      get
+    }
+    public func map<T>(_ transform: (CloneableCore.XML.Accessor) -> T) -> [T]
+    @available(*, renamed: "flatMap")
+    public func mapWithSqueezeNil<T>(_ transform: (CloneableCore.XML.Accessor) -> T?) -> [T]
+    public func append(_ newElement: CloneableCore.XML.Element)
+    public func makeIterator() -> Swift.AnyIterator<CloneableCore.XML.Accessor>
+    public var description: Swift.String {
+      get
+    }
+    public typealias Element = CloneableCore.XML.Accessor
+    public typealias Iterator = Swift.AnyIterator<CloneableCore.XML.Accessor>
+  }
+}
+extension CloneableCore.XML {
+  public class Converter {
+    public init(_ accessor: CloneableCore.XML.Accessor)
+    public func makeDocument(withDeclaration: Swift.Bool = true) throws -> Swift.String
+    @objc deinit
+  }
+}
+extension CloneableCore.XML {
+  open class Element {
+    open var name: Swift.String
+    open var text: Swift.String?
+    open var attributes: [Swift.String : Swift.String]
+    open var childElements: [CloneableCore.XML.Element]
+    open var lineNumberStart: Swift.Int
+    open var lineNumberEnd: Swift.Int
+    open var CDATA: Foundation.Data?
+    open var ignoreNamespaces: Swift.Bool
+    weak open var parentElement: CloneableCore.XML.Element?
+    public init(name: Swift.String, text: Swift.String? = nil, attributes: [Swift.String : Swift.String] = [:], childElements: [CloneableCore.XML.Element] = [], lineNumberStart: Swift.Int = -1, lineNumberEnd: Swift.Int = -1, CDATA: Foundation.Data? = nil, ignoreNamespaces: Swift.Bool = false)
+    @objc deinit
+  }
+}
+public enum XMLError : Swift.Error {
+  case failToEncodeString
+  case interruptedParseError(rawError: any Swift.Error)
+  case accessError(description: Swift.String)
+}
+public protocol XMLSubscriptType {
+}
+extension Swift.Int : CloneableCore.XMLSubscriptType {
+}
+extension Swift.String : CloneableCore.XMLSubscriptType {
+}
+infix operator ?= : DefaultPrecedence
+public func ?= <T>(lhs: inout T, rhs: T?)
+infix operator ?<< : DefaultPrecedence
+public func ?<< <T>(lhs: inout [T], rhs: T?)
+@_hasMissingDesignatedInitializers open class XML {
+  open class func parse(_ data: Foundation.Data, trimming manner: Foundation.CharacterSet? = nil, ignoreNamespaces: Swift.Bool = false) -> CloneableCore.XML.Accessor
+  open class func parse(_ str: Swift.String, trimming manner: Foundation.CharacterSet? = nil, ignoreNamespaces: Swift.Bool = false) throws -> CloneableCore.XML.Accessor
+  open class func document(_ accessor: CloneableCore.XML.Accessor, withDeclaration: Swift.Bool = true) throws -> Swift.String
+  @objc deinit
+}
+public protocol XMLAttributeDeserializable {
+  static func deserialize(_ attribute: CloneableCore.XMLAttribute) throws -> Self
+  func validate() throws
+}
+extension CloneableCore.XMLAttributeDeserializable {
+  public static func deserialize(attribute: CloneableCore.XMLAttribute) throws -> Self
+  public func validate() throws
+}
+public protocol XMLElementDeserializable {
+  static func deserialize(_ element: CloneableCore.XMLElement) throws -> Self
+  func validate() throws
+}
+extension CloneableCore.XMLElementDeserializable {
+  public static func deserialize(_ element: CloneableCore.XMLElement) throws -> Self
+  public func validate() throws
+}
+extension CloneableCore.XMLIndexer {
+  public func value<T>(ofAttribute attr: Swift.String) throws -> T where T : CloneableCore.XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) -> T? where T : CloneableCore.XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) throws -> [T] where T : CloneableCore.XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) throws -> [T]? where T : CloneableCore.XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) throws -> [T?] where T : CloneableCore.XMLAttributeDeserializable
+  public func value<T>() throws -> T where T : CloneableCore.XMLElementDeserializable
+  public func value<T>() throws -> T? where T : CloneableCore.XMLElementDeserializable
+  public func value<T>() throws -> [T] where T : CloneableCore.XMLElementDeserializable
+  public func value<T>() throws -> [T]? where T : CloneableCore.XMLElementDeserializable
+  public func value<T>() throws -> [T?] where T : CloneableCore.XMLElementDeserializable
+  public func value<T>() throws -> T where T : CloneableCore.XMLObjectDeserialization
+  public func value<T>() throws -> T? where T : CloneableCore.XMLObjectDeserialization
+  public func value<T>() throws -> [T] where T : CloneableCore.XMLObjectDeserialization
+  public func value<T>() throws -> [T]? where T : CloneableCore.XMLObjectDeserialization
+  public func value<T>() throws -> [T?] where T : CloneableCore.XMLObjectDeserialization
+}
+extension CloneableCore.XMLIndexer {
+  public func value<T, A>(ofAttribute attr: A) throws -> T where T : CloneableCore.XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) -> T? where T : CloneableCore.XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) throws -> [T] where T : CloneableCore.XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) throws -> [T]? where T : CloneableCore.XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) throws -> [T?] where T : CloneableCore.XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+}
+extension CloneableCore.XMLElement {
+  public func value<T>(ofAttribute attr: Swift.String) throws -> T where T : CloneableCore.XMLAttributeDeserializable
+  public func value<T>(ofAttribute attr: Swift.String) -> T? where T : CloneableCore.XMLAttributeDeserializable
+}
+extension CloneableCore.XMLElement {
+  public func value<T, A>(ofAttribute attr: A) throws -> T where T : CloneableCore.XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+  public func value<T, A>(ofAttribute attr: A) -> T? where T : CloneableCore.XMLAttributeDeserializable, A : Swift.RawRepresentable, A.RawValue == Swift.String
+}
+public protocol XMLObjectDeserialization {
+  static func deserialize(_ element: CloneableCore.XMLIndexer) throws -> Self
+  func validate() throws
+}
+extension CloneableCore.XMLObjectDeserialization {
+  public static func deserialize(_ element: CloneableCore.XMLIndexer) throws -> Self
+  public func validate() throws
+}
+public protocol XMLValueDeserialization : CloneableCore.XMLAttributeDeserializable, CloneableCore.XMLElementDeserializable {
+  static func deserialize(_ element: CloneableCore.XMLElement) throws -> Self
+  static func deserialize(_ attribute: CloneableCore.XMLAttribute) throws -> Self
+  func validate() throws
+}
+extension CloneableCore.XMLValueDeserialization {
+  public static func deserialize(_ element: CloneableCore.XMLElement) throws -> Self
+  public static func deserialize(attribute: CloneableCore.XMLAttribute) throws -> Self
+  public func validate() throws
+}
+extension Swift.Bool : CloneableCore.XMLValueDeserialization {
+  public static func deserialize(_ element: CloneableCore.XMLElement) throws -> Swift.Bool
+  public static func deserialize(_ attribute: CloneableCore.XMLAttribute) throws -> Swift.Bool
+  public func validate()
+}
+extension Swift.Double : CloneableCore.XMLValueDeserialization {
+  public static func deserialize(_ element: CloneableCore.XMLElement) throws -> Swift.Double
+  public static func deserialize(_ attribute: CloneableCore.XMLAttribute) throws -> Swift.Double
+  public func validate()
+}
+extension Swift.Float : CloneableCore.XMLValueDeserialization {
+  public static func deserialize(_ element: CloneableCore.XMLElement) throws -> Swift.Float
+  public static func deserialize(_ attribute: CloneableCore.XMLAttribute) throws -> Swift.Float
+  public func validate()
+}
+extension Swift.Int : CloneableCore.XMLValueDeserialization {
+  public static func deserialize(_ element: CloneableCore.XMLElement) throws -> Swift.Int
+  public static func deserialize(_ attribute: CloneableCore.XMLAttribute) throws -> Swift.Int
+  public func validate()
+}
+extension Swift.String : CloneableCore.XMLValueDeserialization {
+  public static func deserialize(_ element: CloneableCore.XMLElement) -> Swift.String
+  public static func deserialize(_ attribute: CloneableCore.XMLAttribute) -> Swift.String
+  public func validate()
+}
+public enum IndexingError : Swift.Error {
+  case attribute(attr: Swift.String)
+  case attributeValue(attr: Swift.String, value: Swift.String)
+  case key(key: Swift.String)
+  case index(idx: Swift.Int)
+  case initialize(instance: Swift.AnyObject)
+  case encoding
+  case error
+  @available(*, unavailable, renamed: "attribute(attr:)")
+  public static func Attribute(attr: Swift.String) -> CloneableCore.IndexingError
+  @available(*, unavailable, renamed: "attributeValue(attr:value:)")
+  public static func AttributeValue(attr: Swift.String, value: Swift.String) -> CloneableCore.IndexingError
+  @available(*, unavailable, renamed: "key(key:)")
+  public static func Key(key: Swift.String) -> CloneableCore.IndexingError
+  @available(*, unavailable, renamed: "index(idx:)")
+  public static func Index(idx: Swift.Int) -> CloneableCore.IndexingError
+  @available(*, unavailable, renamed: "initialize(instance:)")
+  public static func Init(instance: Swift.AnyObject) -> CloneableCore.IndexingError
+  @available(*, unavailable, renamed: "error")
+  public static var Error: CloneableCore.IndexingError {
+    get
+  }
+}
+extension CloneableCore.IndexingError : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension CloneableCore.IndexingError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public struct ParsingError : Swift.Error {
+  public let line: Swift.Int
+  public let column: Swift.Int
+}
+extension CloneableCore.ParsingError : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension CloneableCore.ParsingError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public enum XMLDeserializationError : Swift.Error {
+  case implementationIsMissing(method: Swift.String)
+  case nodeIsInvalid(node: Swift.String)
+  case nodeHasNoValue
+  case typeConversionFailed(type: Swift.String, element: CloneableCore.XMLElement)
+  case attributeDoesNotExist(element: CloneableCore.XMLElement, attribute: Swift.String)
+  case attributeDeserializationFailed(type: Swift.String, attribute: CloneableCore.XMLAttribute)
+  @available(*, unavailable, renamed: "implementationIsMissing(method:)")
+  public static func ImplementationIsMissing(method: Swift.String) -> CloneableCore.XMLDeserializationError
+  @available(*, unavailable, renamed: "nodeHasNoValue(_:)")
+  public static func NodeHasNoValue(_: CloneableCore.IndexOps) -> CloneableCore.XMLDeserializationError
+  @available(*, unavailable, renamed: "typeConversionFailed(_:)")
+  public static func TypeConversionFailed(_: CloneableCore.IndexingError) -> CloneableCore.XMLDeserializationError
+  @available(*, unavailable, renamed: "attributeDoesNotExist(_:_:)")
+  public static func AttributeDoesNotExist(_ attr: Swift.String, _ value: Swift.String) throws -> CloneableCore.XMLDeserializationError
+  @available(*, unavailable, renamed: "attributeDeserializationFailed(_:_:)")
+  public static func AttributeDeserializationFailed(_ attr: Swift.String, _ value: Swift.String) throws -> CloneableCore.XMLDeserializationError
+}
+extension CloneableCore.XMLDeserializationError : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension CloneableCore.XMLDeserializationError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class IndexOp {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class IndexOps {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TextElement : CloneableCore.XMLContent {
+  final public let text: Swift.String
+  @objc deinit
+}
+extension CloneableCore.TextElement : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct XMLAttribute {
+  public let name: Swift.String
+  public let text: Swift.String
+}
+extension CloneableCore.XMLAttribute : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public protocol XMLContent : Swift.CustomStringConvertible {
+}
+@_hasMissingDesignatedInitializers public class XMLElement : CloneableCore.XMLContent {
+  final public let name: Swift.String
+  public var caseInsensitive: Swift.Bool {
+    get
+  }
+  public var allAttributes: [Swift.String : CloneableCore.XMLAttribute]
+  public func attribute(by name: Swift.String) -> CloneableCore.XMLAttribute?
+  public var text: Swift.String {
+    get
+  }
+  public var recursiveText: Swift.String {
+    get
+  }
+  public var innerXML: Swift.String {
+    get
+  }
+  public var children: [any CloneableCore.XMLContent]
+  @objc deinit
+}
+extension CloneableCore.XMLElement : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension CloneableCore.XMLElement {
+  public func attribute<N>(by name: N) -> CloneableCore.XMLAttribute? where N : Swift.RawRepresentable, N.RawValue == Swift.String
+}
+extension CloneableCore.XMLHash {
+  public typealias XMLElement = CloneableCore.XMLHashXMLElement
+}
+public typealias XMLHashXMLElement = CloneableCore.XMLElement
+extension CloneableCore.XMLIndexer {
+  public func findInnerChild(_ elemName: Swift.String) -> CloneableCore.XMLIndexer?
+  public func findAllInnerChildren(_ elemName: Swift.String) -> [CloneableCore.XMLIndexer]
+}
+@_hasMissingDesignatedInitializers public class XMLHash {
+  public class func config(_ configAction: (CloneableCore.XMLHashOptions) -> Swift.Void) -> CloneableCore.XMLHash
+  public func parse(_ xml: Swift.String) -> CloneableCore.XMLIndexer
+  public func parse(_ data: Foundation.Data) -> CloneableCore.XMLIndexer
+  public class func parse(_ xml: Swift.String) -> CloneableCore.XMLIndexer
+  public class func parse(_ data: Foundation.Data) -> CloneableCore.XMLIndexer
+  public class func lazy(_ xml: Swift.String) -> CloneableCore.XMLIndexer
+  public class func lazy(_ data: Foundation.Data) -> CloneableCore.XMLIndexer
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class XMLHashOptions {
+  public var shouldProcessLazily: Swift.Bool
+  public var shouldProcessNamespaces: Swift.Bool
+  public var caseInsensitive: Swift.Bool
+  public var encoding: Swift.String.Encoding
+  public var userInfo: [Swift.CodingUserInfoKey : Any]
+  public var detectParsingErrors: Swift.Bool
+  @objc deinit
+}
+public enum XMLIndexer {
+  case element(CloneableCore.XMLElement)
+  case list([CloneableCore.XMLElement])
+  case stream(CloneableCore.IndexOps)
+  case xmlError(CloneableCore.IndexingError)
+  case parsingError(CloneableCore.ParsingError)
+  @available(*, unavailable, renamed: "element(_:)")
+  public static func Element(_: CloneableCore.XMLElement) -> CloneableCore.XMLIndexer
+  @available(*, unavailable, renamed: "list(_:)")
+  public static func List(_: [CloneableCore.XMLElement]) -> CloneableCore.XMLIndexer
+  @available(*, unavailable, renamed: "stream(_:)")
+  public static func Stream(_: CloneableCore.IndexOps) -> CloneableCore.XMLIndexer
+  @available(*, unavailable, renamed: "xmlError(_:)")
+  public static func XMLError(_: CloneableCore.IndexingError) -> CloneableCore.XMLIndexer
+  @available(*, unavailable, renamed: "withAttribute(_:_:)")
+  public static func withAttr(_ attr: Swift.String, _ value: Swift.String) throws -> CloneableCore.XMLIndexer
+  public var element: CloneableCore.XMLElement? {
+    get
+  }
+  public var all: [CloneableCore.XMLIndexer] {
+    get
+  }
+  public var children: [CloneableCore.XMLIndexer] {
+    get
+  }
+  @available(*, unavailable, renamed: "filterChildren(_:)")
+  public func filter(_ included: (_ elem: CloneableCore.XMLElement, _ index: Swift.Int) -> Swift.Bool) -> CloneableCore.XMLIndexer
+  public func filterChildren(_ included: (_ elem: CloneableCore.XMLElement, _ index: Swift.Int) -> Swift.Bool) -> CloneableCore.XMLIndexer
+  public func filterAll(_ included: (_ elem: CloneableCore.XMLElement, _ index: Swift.Int) -> Swift.Bool) -> CloneableCore.XMLIndexer
+  public var userInfo: [Swift.CodingUserInfoKey : Any] {
+    get
+  }
+  public func withAttribute(_ attr: Swift.String, _ value: Swift.String) throws -> CloneableCore.XMLIndexer
+  public init(_ rawObject: Swift.AnyObject) throws
+  public init(_ elem: CloneableCore.XMLElement)
+  public func byKey(_ key: Swift.String) throws -> CloneableCore.XMLIndexer
+  public subscript(key: Swift.String) -> CloneableCore.XMLIndexer {
+    get
+  }
+  public func byIndex(_ index: Swift.Int) throws -> CloneableCore.XMLIndexer
+  public subscript(index: Swift.Int) -> CloneableCore.XMLIndexer {
+    get
+  }
+}
+extension CloneableCore.XMLIndexer : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension CloneableCore.XMLIndexer {
+  public func withAttribute<A, V>(_ attr: A, _ value: V) throws -> CloneableCore.XMLIndexer where A : Swift.RawRepresentable, V : Swift.RawRepresentable, A.RawValue == Swift.String, V.RawValue == Swift.String
+  public func byKey<K>(_ key: K) throws -> CloneableCore.XMLIndexer where K : Swift.RawRepresentable, K.RawValue == Swift.String
+  public subscript<K>(key: K) -> CloneableCore.XMLIndexer where K : Swift.RawRepresentable, K.RawValue == Swift.String {
+    get
+  }
+}
+public class CloneableCore {
+  public var appID: Swift.String
+  public var connection_state: CloneableCore.CloneableConnectionState {
+    get
+    set
+  }
+  public var auth_status: CloneableCore.CloneableAuthStatus {
+    get
+    set
+  }
+  public var sync_status: CloneableCore.CloneableSyncStatus {
+    get
+    set
+  }
+  public init(runtime_environment: CloneableCore.RUNTIME_ENVIRONMENT = .mobile) throws
+  #if compiler(>=5.3) && $AsyncAwait
+  public func login(credentials: CloneableCore.CloneableCredentials) async throws
+  #endif
+  public func signOut()
+  @objc deinit
+  public func getDataCache() -> CloneableCore.DataManager
+  #if compiler(>=5.3) && $AsyncAwait
+  public func startSyncEngine() async throws
+  #endif
+  public func subscribeToNetworkUpdates(_ observer: @escaping (CloneableCore.CloneableConnectionState) -> Swift.Void) -> CloneableCore.NetworkMonitor.NetworkStatusToken
+  public func subscribeToSyncStatusUpdates(_ observer: @escaping (CloneableCore.CloneableSyncStatus) -> Swift.Void) -> CloneableCore.SyncStatusToken
+  public func subscribeToDeployedWorkflowSyncUpdates(_ observer: @escaping (CloneableCore.SyncManagerDeployedWorkflowChangeType) -> Swift.Void) -> CloneableCore.CloneableObserverToken?
+  public func getConnectionStatus() -> CloneableCore.CloneableConnectionState
+  public func clearCache() throws
+  public func cache() -> CloneableCore.LocalCacheManager
+  public func getRuntimeEnvironment() -> CloneableCore.RUNTIME_ENVIRONMENT
+  public func startWorkflow(workflow: Cloneable_Swift_Client.DeployedWorkflowSchema, navController: any CloneableCore.NavigationCoordinator)
+  public func startWorkflow(workflowId: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class Components {
+  public static func addComponent(component: CloneableCore.Component)
+  @objc deinit
+}
+public enum CloneableCredentials {
+  case auth0(jwt: Swift.String)
+  case apiKey(key: Swift.String)
+}
+extension CloneableCore.DataManager {
+  #if compiler(>=5.3) && $AsyncAwait
+  public func createCompletedWorkflow(completedWorkflow: Cloneable_Swift_Client.CompletedWorkflowSchema) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func updateCompletedWorkflow(completedWorkflow: Cloneable_Swift_Client.CompletedWorkflowSchema) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func deleteCompletedWorkflow(id: Foundation.UUID) async throws
+  #endif
+}
+extension CloneableCore.DataManager {
+  #if compiler(>=5.3) && $AsyncAwait
+  public func insertDataObject(_ DataObjectSchema: CloneableCore.CloneableObject) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func updateDataObject(_ DataObjectSchema: CloneableCore.CloneableObject, userId: Swift.String) async throws
+  #endif
+}
+extension CloneableCore.DataManager {
+  public func fileExistsInAnyDataField(fileId: Swift.String) -> Swift.Bool
+  public func getAllFileIds() -> [Swift.String]
+  public func getNumberOfDownloadedDataObjects() throws -> Swift.Int
+  public func deleteAllDataObjects() throws
+  public func getObjectsOfType(objectID: Swift.String, objectTemplateRevision: Swift.Double, searchString: Swift.String = "") -> [CloneableCore.CloneableObject]
+  public func getFirstLiveObjectFromFilter(objectTemplateID: Swift.String, fieldFilters: [Swift.String : CloneableCore.AnyCloneableData]) -> Cloneable_Swift_Client.DataObjectSchema?
+  public func getDataObjectByInstanceId(instanceId: Swift.String) throws -> CloneableCore.CloneableObject?
+}
+extension CloneableCore.DataManager {
+  public func subscribeToDataObjectChanges(objectInstanceId: Swift.String, callback: @escaping (CloneableCore.SyncManagerDataObjectChangeType) -> Swift.Void) -> CloneableCore.DataObjectObserverToken
+  public func unsubscribeFromDataObjectChanges(token: CloneableCore.DataObjectObserverToken)
+}
+extension CloneableCore.DataManager {
+  public func getAllWorkflows() throws -> [Cloneable_Swift_Client.DeployedWorkflowSchema]
+  public func getWorkflow(workflowId: Swift.String) throws -> Cloneable_Swift_Client.DeployedWorkflowSchema
+  public func getAllFileResources() throws -> [Swift.String]
+  public func getFileResourcesDict() throws -> [Swift.String : [Swift.String]]
+  public func fileExistsInResources(fileId: Swift.String) -> Swift.Bool
+}
+extension CloneableCore.DataManager {
+  public func getFileInfo(id: Swift.String) throws -> Cloneable_Swift_Client.FileSchema
+  #if compiler(>=5.3) && $AsyncAwait
+  public func getFileDownloadURL(fileId: Swift.String) async throws -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  public func getFileUploadURL(fileInformation: CloneableCore.SyncedFileInformationV2) async throws -> Swift.String
+  #endif
+}
+extension CloneableCore.DataManager {
+  #if compiler(>=5.3) && $AsyncAwait
+  public func createNewFileInformation(file: Cloneable_Swift_Client.FileSchema) async throws -> Swift.String
+  #endif
+}
+extension CloneableCore.DataManager {
+  #if compiler(>=5.3) && $AsyncAwait
+  public func updateFileAsUploaded(fileId: Swift.String) async throws
+  #endif
+}
+extension CloneableCore.DataManager {
+  #if compiler(>=5.3) && $AsyncAwait
+  public func createNotificationRequest(notificationRequest: Cloneable_Swift_Client.NotificationRequestSchema) async throws
+  #endif
+}
+public class DataManager {
+  weak public static var ref: CloneableCore.DataManager?
+  public var file_sync_engine: CloneableCore.CloneableFileSyncEngine
+  public init(persist_cache: Swift.Bool, appID: Swift.String, isProduction: Swift.Bool = false) throws
+  @objc deinit
+  public func clearFileCache()
+  public func getUserId() -> Swift.String?
+  public func getUserData() -> Cloneable_Swift_Client.UserSchema?
+  public func canProceed(auth0_jwt: Swift.String) -> Swift.String?
+}
+public enum ModelToSync : Swift.String, Swift.Codable {
+  case FileInformation
+  case CompletedWorkflow
+  case NotificationRequest
+  case DataObject
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum APICallStatus : Swift.String, Swift.Codable {
+  case Pending
+  case Syncing
+  case Synced
+  case Error
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum FileInformationCallType : Swift.String, CloneableCore.APICallType {
+  case createFile
+  case updateUploadStatus
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum CompletedWorkflowCallType : Swift.String, CloneableCore.APICallType {
+  case startWorkflow
+  case updateWorkflow
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum NotificationRequestCallType : Swift.String, CloneableCore.APICallType {
+  case uploadRequest
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum DataObjectCallType : Swift.String, CloneableCore.APICallType {
+  case createRequest
+  case updateRequest
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol APICallType : Swift.Decodable, Swift.Encodable {
+  var rawValue: Swift.String { get }
+}
+public struct APICall : Swift.Codable {
+  public let id: Swift.String
+  public let relatedID: Swift.String
+  public let modelToSync: CloneableCore.ModelToSync
+  public var status: CloneableCore.APICallStatus
+  public let dateCreated: Foundation.Date
+  public let callType: any CloneableCore.APICallType
+  public init(relatedId: Swift.String, modelToSync: CloneableCore.ModelToSync, status: CloneableCore.APICallStatus, dateCreated: Foundation.Date, callType: any CloneableCore.APICallType)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public class DatabaseManager {
+  public var connection: SQLite.Connection?
+  public init(persist_cache: Swift.Bool) throws
+  @objc deinit
+}
+public enum SyncManagerDeployedWorkflowChangeType {
+  case insert(workflow: Cloneable_Swift_Client.DeployedWorkflowSchema)
+  case insertMultiple(workflowIds: [Swift.String])
+  case delete(workflowId: Swift.String)
+  case clearAll
+}
+@_hasMissingDesignatedInitializers public class SyncedFileDatabase : CloneableCore.SQLiteTable {
+  public typealias DatabaseChangeHandler = (_ change: CloneableCore.SyncedFileDatabase.DatabaseChange) -> Swift.Void
+  public var changeHandler: CloneableCore.SyncedFileDatabase.DatabaseChangeHandler?
+  public func updateSyncStatus(fileId: Foundation.UUID, isComplete: Swift.Bool) throws
+  public func updateFileURL(fileId: Foundation.UUID, fileURL: Swift.String) throws
+  public func delete(fileId: Foundation.UUID) throws
+  public func getSyncedFile(cloneableFileID: Foundation.UUID?) throws -> CloneableCore.SyncedFileInformationV2?
+  public func getUnsyncedFileCount() -> Swift.Int?
+  public func getTotalFileCount() -> Swift.Int?
+  public func getSyncedFileCount() -> Swift.Int?
+  public func getFirstUnsyncedFile() throws -> CloneableCore.SyncedFileInformationV2?
+  public func getSyncedFiles() throws -> [CloneableCore.SyncedFileInformationV2]
+  public func getSyncedFileByFileName(fileName: Swift.String) throws -> CloneableCore.SyncedFileInformationV2?
+  public func deleteAllSyncedFiles() throws
+  public func observeFile(fileId: Foundation.UUID, observer: @escaping CloneableCore.SyncedFileDatabase.DatabaseChangeHandler) -> CloneableCore.FileObserverToken
+  @objc deinit
+}
+extension CloneableCore.SyncedFileDatabase {
+  public func setChangeHandler(_ newHandler: CloneableCore.SyncedFileDatabase.DatabaseChangeHandler?)
+  public enum DatabaseChange {
+    case insert(file: CloneableCore.SyncedFileInformationV2)
+    case update(file: CloneableCore.SyncedFileInformationV2)
+    case delete(fileId: Foundation.UUID)
+  }
+  public func notifyChangeHandler(of change: CloneableCore.SyncedFileDatabase.DatabaseChange)
+}
+@_hasMissingDesignatedInitializers public class FileObserverToken {
+  public func cancel()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SyncedFileInformationObserverToken {
+  public func cancel()
+  @objc deinit
+}
+public class LocalCacheManager {
+  public init(persist_cache: Swift.Bool) throws
+  @objc deinit
+  public func table<T>(ofType type: T.Type) -> T? where T : CloneableCore.SQLiteTable
+}
+extension CloneableCore.LocalCacheManager {
+  public func clearCache() throws
+  public func startCache(persist_cache: Swift.Bool) throws
+}
+public typealias DataObjectObserverToken = Foundation.UUID
+public enum SyncManagerDataObjectChangeType {
+  case insert(object: Cloneable_Swift_Client.DataObjectSchema)
+  case change(object: Cloneable_Swift_Client.DataObjectSchema)
+  case delete(objectId: Swift.String)
+  case clearAll
+}
+extension CloneableCore.DataManager {
+  public func resetDataObjectCache()
+}
+extension CloneableCore.DataManager {
+  public func resetDeployedWorkflowCache()
+}
+extension CloneableCore.DataManager {
+  public func resetFileCache()
+}
+public typealias FileSyncStatusToken = Foundation.UUID
+@_hasMissingDesignatedInitializers public class CloneableFileSyncEngine {
+  public var syncedFileQueue: Dispatch.DispatchQueue
+  public var totalFiles: Swift.Int
+  public var filesSynced: Swift.Int
+  public func getLiveCloneableFileObject(id: Foundation.UUID) -> Cloneable_Swift_Client.FileSchema?
+  public func processAndSyncObjectsNonCompleteRequests()
+  public func getCloneableDataFromFile(fileName: Swift.String, fileType: Swift.String, displayName: Swift.String) -> CloneableCore.AnyCloneableData?
+  public func fileExistsLocally(fileName: Swift.String) -> Swift.Bool
+  public func fileExistsLocally(fileURL: Foundation.URL) -> Swift.Bool
+  public func getSyncFolderLocation() -> Foundation.URL
+  public func getNumberOfDownloadedFiles() -> Swift.Int
+  public func getFileInformation(fileID: Foundation.UUID) -> CloneableCore.SyncedFileInformationV2?
+  @objc deinit
+}
+extension CloneableCore.CloneableFileSyncEngine {
+  #if compiler(>=5.3) && $AsyncAwait
+  public func getFile(fileID: Swift.String) async throws -> Foundation.Data
+  #endif
+  public func saveFile(syncRequest: CloneableCore.FileSyncRequest, completion: @escaping (Foundation.UUID?) -> Swift.Void) throws
+}
+public enum FileSyncChangeType {
+  case syncActive
+  case fileDownloadedForWorkflow(workflowId: Swift.String)
+  case fileSyncUpdate(totalfiles: Swift.Int, filesSynced: Swift.Int)
+  case syncComplete
+  case syncFailed
+}
+extension CloneableCore.CloneableFileSyncEngine {
+  public func subscribeToChanges(_ completion: @escaping (CloneableCore.FileSyncChangeType) -> Swift.Void) -> CloneableCore.FileSyncStatusToken
+  public func unsubscribeFromChanges(token: CloneableCore.FileSyncStatusToken)
+}
+@_hasMissingDesignatedInitializers public class SyncStatusToken : Swift.Hashable {
+  final public let id: Foundation.UUID
+  public func unsubscribe()
+  public static func == (lhs: CloneableCore.SyncStatusToken, rhs: CloneableCore.SyncStatusToken) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  @objc deinit
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class DeviceServices {
+  public static var locationManager: any CloneableCore.CloneableLocationManager.Type
+  @objc deinit
+}
+extension Foundation.Bundle {
+  public var isProduction: Swift.Bool {
+    get
+  }
+}
+extension Swift.String : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+public enum LogLevel : Swift.String {
+  case fatal
+  case success
+  case debug
+  case info
+  case warning
+  case error
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct LoggerWorkflowInformation : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct LoggerComponentInformation : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CloneableLog {
+  public var id: Swift.String
+  public var logLevel: CloneableCore.LogLevel
+  public var message: Swift.String
+  public var date: Foundation.Date
+  public var user: Cloneable_Swift_Client.UserSchema?
+  public var workflow: CloneableCore.LoggerWorkflowInformation?
+  public var component: CloneableCore.LoggerComponentInformation?
+  public var displayMode: CloneableCore.DisplayMode?
+  public var error: (any Swift.Error)?
+}
+public enum DisplayMode {
+  case top
+  case middle
+  case drawer
+  case sheet
+  public static func == (a: CloneableCore.DisplayMode, b: CloneableCore.DisplayMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public typealias LogObserverToken = Foundation.UUID
+@_hasMissingDesignatedInitializers public class CloneableLogger {
+  public static let shared: CloneableCore.CloneableLogger
+  public static var logLevel: CloneableCore.LogLevel
+  public static var logCallback: ((CloneableCore.CloneableLog) -> Swift.Void)?
+  public static var errorCallback: ((CloneableCore.CloneableLog) -> Swift.Void)?
+  public static func log(logLevel: CloneableCore.LogLevel, message: Swift.String, display: CloneableCore.DisplayMode? = nil, component: CloneableCore.LoggerComponentInformation? = nil, error: (any Swift.Error)? = nil)
+  public static func getLogs() -> [CloneableCore.CloneableLog]
+  public static func clearLogs()
+  public static func notifyObservers(log: CloneableCore.CloneableLog)
+  public static func subscribe(observer: @escaping (CloneableCore.CloneableLog) -> Swift.Void) -> CloneableCore.LogObserverToken
+  public static func unsubscribe(token: CloneableCore.LogObserverToken)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class NetworkMonitor {
+  @_hasMissingDesignatedInitializers public class NetworkStatusToken : Swift.Hashable {
+    public static func == (lhs: CloneableCore.NetworkMonitor.NetworkStatusToken, rhs: CloneableCore.NetworkMonitor.NetworkStatusToken) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    @objc deinit
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @objc deinit
+}
+extension Cloneable_Swift_Client.CompletedWorkflowSchema {
+  public mutating func addObjectRelations(objectInstanceId: Swift.String, objectName: Swift.String)
+  public mutating func finalizeWorkflow()
+  public mutating func upsertAuditTimeline(timelineObject: Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner)
+  public mutating func markComponentAsCompleted(dynamicComponentId: Swift.String)
+}
+extension AnyCodable {
+  public var stringValue: Swift.String? {
+    get
+  }
+  public var boolValue: Swift.Bool? {
+    get
+  }
+  public var uuidValue: Foundation.UUID? {
+    get
+  }
+  public var numberValue: Swift.Double? {
+    get
+  }
+  public var dateValue: Foundation.Date? {
+    get
+  }
+}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation {
+  public init(from existing: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation)
+  public func toFieldFileInformation() -> CloneableCore.FieldFileInformation
+}
+extension CloneableCore.AnyCloneableData {
+  public init?(anyCodable: AnyCodable, type: Swift.String) throws
+}
+extension CloneableCore.AnyCloneableData {
+  public var bindingStringValue: Swift.String {
+    get
+    set
+  }
+  public var bindingNumberValue: Swift.Double {
+    get
+    set
+  }
+  public var bindingDateValue: Foundation.Date {
+    get
+    set
+  }
+  public var bindingBooleanValue: Swift.Bool {
+    get
+    set
+  }
+  public var bindingStatusValue: Swift.String {
+    get
+    set
+  }
+}
+public enum CloneableDataError : Swift.Error {
+  case invalidValue
+  case implementationMissing
+  case errorLoadingFromFile
+  case errorSavingToFile
+  public static func == (a: CloneableCore.CloneableDataError, b: CloneableCore.CloneableDataError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol CloneableDataType {
+  var bindingValue: Any { get set }
+  func valueType() -> any Any.Type
+  func getRawValue() -> Any
+  func getTypeAsString() -> Swift.String
+  func getStringDescription() -> Swift.String
+  func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  init(fileURL: Foundation.URL, displayName: Swift.String) throws
+  init(json: Swift.String) throws
+  func getJSONValue() -> Swift.String
+  func saveToFile(fileURL: Foundation.URL) throws
+  func getData() -> Foundation.Data?
+}
+extension CloneableCore.CloneableDataType {
+  public var complexType: Swift.Bool {
+    get
+    set
+  }
+}
+extension CloneableCore.CloneableDataType {
+  public init(fileURL: Foundation.URL, displayName: Swift.String) throws
+  public func saveToFile(fileURL: Foundation.URL) throws
+  public func getData() -> Foundation.Data?
+}
+public enum CloneableFileType : Swift.String {
+  case all
+  case image
+  case pdf
+  case iosAIModel
+  case shapefile
+  case kml
+  case kmz
+  case geotiff
+  case raster
+  public func getContentType(fileExtension: Swift.String? = nil) -> Swift.String
+  public func getFileExtension(contentType: Swift.String? = nil) -> Swift.String
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public typealias CloneableData = CloneableCore.AnyCloneableData
+public struct AnyCloneableData : Swift.Equatable {
+  public var data: any CloneableCore.CloneableDataType
+  public init(data: any CloneableCore.CloneableDataType)
+  public static var typeRegistry: [Swift.String : any CloneableCore.CloneableDataType.Type]
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public init(jsonValue: Swift.String, type: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public func isComplex() -> Swift.Bool
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to: CloneableCore.AnyCloneableData) -> Swift.Bool
+  public static func == (lhs: CloneableCore.AnyCloneableData, rhs: CloneableCore.AnyCloneableData) -> Swift.Bool
+  public init(fileURL: Foundation.URL, fileType: Swift.String, displayName: Swift.String) throws
+  public func saveFile(fileURL: Foundation.URL) throws
+  public init?(from jxValue: JXKit.JXValue)
+}
+extension CloneableCore.AnyCloneableData {
+  public static func number(_ value: Swift.Double) -> CloneableCore.AnyCloneableData
+  public static func array(_ value: [CloneableCore.AnyCloneableData]) -> CloneableCore.AnyCloneableData
+  public static func date(_ value: Foundation.Date) -> CloneableCore.AnyCloneableData
+  public static func status(_ value: Swift.String) -> CloneableCore.AnyCloneableData
+  public static func string(_ value: Swift.String) -> CloneableCore.AnyCloneableData
+  public static func uuid(_ value: Foundation.UUID) throws -> CloneableCore.AnyCloneableData
+  public static func uuid(_ value: Swift.String) throws -> CloneableCore.AnyCloneableData
+  public static func boolean(_ value: Swift.Bool) -> CloneableCore.AnyCloneableData
+  public static func boundingbox(_ value: CloneableCore.CloneableBoundingBox) -> CloneableCore.AnyCloneableData
+  public static func object(_ value: Swift.String) -> CloneableCore.AnyCloneableData
+}
+extension CloneableCore.AnyCloneableData {
+  public func getStringValue() -> Swift.String?
+  public func getBoolValue() -> Swift.Bool?
+  public func getArrayValue() -> [CloneableCore.AnyCloneableData]?
+  public func getBoundingBoxValue() -> CloneableCore.CloneableBoundingBox?
+  public func getDateValue() -> Foundation.Date?
+  public func getDepthMap() -> CloneableCore.CloneableDepthMap?
+  public func getImageDataValue() -> Foundation.Data?
+  public func getNumberValue() -> Swift.Double?
+  public func getObjectValue() -> Foundation.UUID?
+  public func getUUIDValue() -> Foundation.UUID?
+  public func getDepthMapValue() -> CloneableCore.CloneableDepthMap?
+  public func getFileExtension() -> Swift.String?
+  public func getObjectFieldValue(fieldName: Swift.String) -> CloneableCore.AnyCloneableData?
+}
+public struct CloneableArray : CloneableCore.CloneableDataType {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public init(json: Swift.String, subType: Swift.String) throws
+  public init(data: [CloneableCore.AnyCloneableData])
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+}
+extension CloneableCore.AnyCloneableData {
+  public func isArray() -> Swift.Bool
+  public func getArrayType() -> CloneableCore.AnyCloneableData.Type?
+  public func getArrayTypeAsString() -> Swift.String?
+}
+public struct CloneableBoolean : CloneableCore.CloneableDataType, Swift.Codable {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public init(_ value: Swift.Bool)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum TrackState : Swift.Int {
+  case new
+  case tracked
+  case lost
+  case removed
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class BoxSnapPoints : ObjectiveC.NSObject, Foundation.NSCopying {
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  public func snapPointsAreEqual(_ object: CloneableCore.BoxSnapPoints?) -> Swift.Bool
+  public var scaledTop: CoreFoundation.CGPoint?
+  public var scaledBottom: CoreFoundation.CGPoint?
+  public var scaledLeft: CoreFoundation.CGPoint?
+  public var scaledRight: CoreFoundation.CGPoint?
+  public var top: CoreFoundation.CGPoint?
+  public var bottom: CoreFoundation.CGPoint?
+  public var left: CoreFoundation.CGPoint?
+  public var right: CoreFoundation.CGPoint?
+  public init(top: CoreFoundation.CGPoint? = nil, bottom: CoreFoundation.CGPoint? = nil, left: CoreFoundation.CGPoint? = nil, right: CoreFoundation.CGPoint? = nil, scaledTop: CoreFoundation.CGPoint? = nil, scaledBottom: CoreFoundation.CGPoint? = nil, scaledLeft: CoreFoundation.CGPoint? = nil, scaledRight: CoreFoundation.CGPoint? = nil)
+  @objc deinit
+}
+@objc public class CloneableBoundingBox : ObjectiveC.NSObject, Swift.Codable, CloneableCore.CloneableDataType, Foundation.NSCopying {
+  required public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public var complexType: Swift.Bool
+  @objc public var id: Swift.String
+  @objc public var boundingBox: CoreFoundation.CGRect
+  @objc public var label: Swift.String
+  @objc public var confidence: Swift.Double
+  @objc public var trackID: Swift.Double
+  @objc public var createdByPerson: Swift.Bool
+  @objc public var modifiedByPerson: Swift.Bool
+  public var state: CloneableCore.TrackState
+  public var measuredWidth: Swift.Double?
+  public var measuredHeight: Swift.Double?
+  public var referenceImageHeight: Swift.Int?
+  public var referenceImageWidth: Swift.Int?
+  public var measurementSnapped: Swift.Bool?
+  public var boxSnapPoints: CloneableCore.BoxSnapPoints?
+  required public init(from decoder: any Swift.Decoder) throws
+  @objc public init(id: Swift.String, boundingBox: CoreFoundation.CGRect, label: Swift.String, confidence: Swift.Double, trackID: Swift.Double, measuredWidth: Foundation.NSNumber? = nil, measuredHeight: Foundation.NSNumber? = nil, state: Swift.Int, createdByPerson: Swift.Bool = false, modifiedByPerson: Swift.Bool = false, referenceImageWidth: Swift.Int, referenceImageHeight: Swift.Int, measurementSnapped: Swift.Bool = false, boxSnapPoints: CloneableCore.BoxSnapPoints? = nil)
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public static func isBoundingBoxTouchingEdge(_ boundingBox: CloneableCore.CloneableBoundingBox, inImageWithSize imageSize: CoreFoundation.CGSize) -> Swift.Bool
+  @objc deinit
+}
+extension CloneableCore.CloneableBoundingBox {
+  public func findHorizontalSnapPoints(from depthMap: CloneableCore.CloneableDepthMap, threshold: Swift.Float = 0.1, userDefinedBox: CoreFoundation.CGRect? = nil, offset: Swift.Int = 0) -> CloneableCore.BoxSnapPoints?
+  public func findVerticalSnapPoints(from depthMap: CloneableCore.CloneableDepthMap, threshold: Swift.Float = 0.1, userDefinedBox: CoreFoundation.CGRect? = nil, offset: Swift.Int = 0) -> CloneableCore.BoxSnapPoints?
+  public func updateHorizontalSnapPoints(from depthMap: CloneableCore.CloneableDepthMap, threshold: Swift.Float = 0.1) -> CloneableCore.CloneableBoundingBox
+  public func updateVerticalSnapPoints(from depthMap: CloneableCore.CloneableDepthMap, threshold: Swift.Float = 0.1) -> CloneableCore.CloneableBoundingBox
+  public func findNearestPointInRow(from depthMap: CloneableCore.CloneableDepthMap, row: Swift.Int, userDefinedBox: CoreFoundation.CGRect? = nil) -> CoreFoundation.CGPoint?
+}
+public struct CloneableColor : Swift.Codable, CloneableCore.CloneableDataType {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public var r: Swift.Float
+  public var g: Swift.Float
+  public var b: Swift.Float
+  public var a: Swift.Float
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CloneableDate : CloneableCore.CloneableDataType, Swift.Codable {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public init(date: Foundation.Date)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DepthMap {
+}
+public struct CloneableDepthMap : CloneableCore.CloneableDataType, Swift.Codable, Swift.Equatable {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public static func == (lhs: CloneableCore.CloneableDepthMap, rhs: CloneableCore.CloneableDepthMap) -> Swift.Bool
+  public var complexType: Swift.Bool
+  public var id: Foundation.UUID
+  public var depthMap: [[Swift.Float]]
+  public var unprojectedDepth: [[[Swift.Float]]]
+  public var confidenceMap: [[Swift.Int]]?
+  public var refImgSize: (width: Swift.Int, height: Swift.Int)
+  public var depthSize: (width: Swift.Int, height: Swift.Int)
+  public init(depthMap: [[Swift.Float]], unprojectedDepth: [[[Swift.Float]]], refImgSize: (width: Swift.Int, height: Swift.Int), depthSize: (width: Swift.Int, height: Swift.Int), confidenceMap: [[Swift.Int]]? = nil)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+}
+extension CloneableCore.CloneableDepthMap {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func saveToFile(fileURL: Foundation.URL) throws
+}
+public struct CloneableKML : CloneableCore.CloneableDataType {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public var kmlData: Foundation.Data
+  public init(kmlData: Foundation.Data)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func convertKMLToString() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public init(fileURL: Foundation.URL, displayName: Swift.String) throws
+}
+public struct CloneableLocation : CloneableCore.CloneableDataType, Swift.Equatable, Swift.Codable {
+  public static func == (lhs: CloneableCore.CloneableLocation, rhs: CloneableCore.CloneableLocation) -> Swift.Bool
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public var id: Swift.String
+  public var latitude: Swift.Double
+  public var longitude: Swift.Double
+  public var altitude: Swift.Double?
+  public var additional_properties: [Swift.String : CloneableCore.CloneableString]?
+  public var complexType: Swift.Bool
+  public init(id: Swift.String? = nil, latitude: Swift.Double, longitude: Swift.Double, altitude: Swift.Double? = nil, additional_properties: [Swift.String : CloneableCore.CloneableString]? = nil)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func simpleDescription() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct CloneableNumber : CloneableCore.CloneableDataType, Swift.Codable {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public init(_ value: Swift.Double)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CloneableDataObject : CloneableCore.CloneableDataType {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public init(data: Swift.String)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+}
+public struct CloneableStatus : CloneableCore.CloneableDataType, Swift.Codable {
+  public func getJSONValue() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public init(json: Swift.String)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CloneableString : CloneableCore.CloneableDataType, Swift.Codable {
+  public func getJSONValue() -> Swift.String
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public init(json: Swift.String)
+  public init(_ value: Swift.String)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CloneableUUID : CloneableCore.CloneableDataType {
+  public init(json: Swift.String) throws
+  public func getJSONValue() -> Swift.String
+  public init(uuid: Foundation.UUID)
+  public var bindingValue: Any {
+    get
+    set
+  }
+  public func valueType() -> any Any.Type
+  public func getRawValue() -> Any
+  public func getTypeAsString() -> Swift.String
+  public func getStringDescription() -> Swift.String
+  public func uuidValue() -> Foundation.UUID
+  public func getJXValue(context: JXKit.JXContext) -> JXKit.JXValue?
+  public func isEqual(to other: any CloneableCore.CloneableDataType) -> Swift.Bool
+}
+extension CloneableCore.AnyCloneableData {
+  public static func registerDataType(name: Swift.String, type: any CloneableCore.CloneableDataType.Type)
+  public static func getType(name: Swift.String) -> (any CloneableCore.CloneableDataType.Type)?
+}
+extension Cloneable_Swift_Client.CreateCompletedWorkflowSchema {
+  public init(from completedWorkflowSchema: Cloneable_Swift_Client.CompletedWorkflowSchema)
+}
+extension Cloneable_Swift_Client.UpdateCompletedWorkflowSchema {
+  public init(from completedWorkflowSchema: Cloneable_Swift_Client.CompletedWorkflowSchema)
+}
+extension Cloneable_Swift_Client.UpdateDataObjectFieldsSchema {
+  public init(from dataObjectField: Cloneable_Swift_Client.DataObjectSchemaFieldsInner, userId: Swift.String)
+}
+public protocol SQLiteTable {
+}
+public enum RUNTIME_ENVIRONMENT {
+  case mobile
+  case cloud
+  public static func == (a: CloneableCore.RUNTIME_ENVIRONMENT, b: CloneableCore.RUNTIME_ENVIRONMENT) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum APIError : Swift.Error {
+  case invalidReturnType
+  case couldntAuthenticateRequest
+  case apiManagerNotSet
+  case serverUnreachable
+  case invalidResponse
+  public static func == (a: CloneableCore.APIError, b: CloneableCore.APIError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum AnyCloneableDataError : Swift.Error {
+  case failedInit
+  case typeNotRegistered(Swift.String)
+}
+public enum AuthenticationError : Swift.Error {
+  case loginError
+  case notLoggedIn
+  case cannotRefreshUserData
+  public static func == (a: CloneableCore.AuthenticationError, b: CloneableCore.AuthenticationError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum CloneableSyncError : Swift.Error {
+  case notAuthenticated
+  case fileSyncError
+  case objectSyncError
+  case workflowSyncError
+  case completedWorkflowSyncError
+  case notificationSyncSerror
+  case dataObjectSyncError
+  public static func == (a: CloneableCore.CloneableSyncError, b: CloneableCore.CloneableSyncError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Cloneable_Swift_Client.CreateFileSchema {
+  public init(from fileSchema: Cloneable_Swift_Client.FileSchema)
+}
+extension Cloneable_Swift_Client.FileSchema {
+  public init(fileSyncRequest: CloneableCore.FileSyncRequest)
+}
+public enum FileSyncRelation : Swift.String {
+  case object
+  case workflow
+  case component
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct FileSyncRequest {
+  public let fileName: Swift.String
+  public let data: CloneableCore.CloneableData?
+  public let fileRelation: CloneableCore.FileSyncRelation
+  public let fileType: CloneableCore.CloneableFileType
+  public let one_way_sync: Swift.Bool
+  public let user: Swift.String
+  public let company: Swift.String
+  public let typeRefID: Swift.String?
+  public let relatedObjectInstanceID: Foundation.UUID?
+  public let relatedWorkflowInstanceID: Foundation.UUID?
+  public let relatedDeployedWorkflowIDs: [Swift.String]?
+  public let download: Swift.Bool
+  public let cloneableFileID: Foundation.UUID?
+  public let fieldFileInformation: CloneableCore.FieldFileInformation?
+  public init(fileName: Swift.String, data: CloneableCore.CloneableData?, fileRelation: CloneableCore.FileSyncRelation, fileType: CloneableCore.CloneableFileType, one_way_sync: Swift.Bool, user: Swift.String, company: Swift.String, typeRefID: Swift.String?, relatedObjectInstanceID: Foundation.UUID?, relatedWorkflowInstanceID: Foundation.UUID?, relatedDeployedWorkflowIDs: [Swift.String]?, download: Swift.Bool, cloneableFileID: Foundation.UUID?, fieldFileInformation: CloneableCore.FieldFileInformation?)
+}
+public struct FieldFileInformation {
+  public var fileExtension: Swift.String?
+  public var fileName: Swift.String?
+  public var fileSize: Swift.Int?
+  public var fileType: Swift.String?
+  public var fileUrl: Swift.String?
+  public var storageAuthProviderName: Swift.String?
+  public var storageAuthProviderRefID: Swift.String?
+  public var storageProvider: Swift.String?
+  public var one_way_sync: Swift.Bool?
+  public init(fileExtension: Swift.String?, fileName: Swift.String?, fileSize: Swift.Int?, fileType: Swift.String?, fileUrl: Swift.String?, storageAuthProviderName: Swift.String?, storageAuthProviderRefID: Swift.String?, storageProvider: Swift.String?, one_way_sync: Swift.Bool?)
+}
+extension Cloneable_Swift_Client.FileSchema {
+  public init(decodingFromDB decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct SyncedFileInformationV2 {
+  public let id: Foundation.UUID
+  public var cloneableFileID: Foundation.UUID?
+  public var relatedCloneableObjects: [Foundation.UUID]
+  public var relatedCloneableDeployedWorkflows: [Swift.String]
+  public var download: Swift.Bool?
+  public var syncComplete: Swift.Bool
+  public var localFilePath: Swift.String?
+  public var fileName: Swift.String
+  public init(id: Foundation.UUID, cloneableFileID: Foundation.UUID?, relatedCloneableObjects: [Foundation.UUID], relatedCloneableDeployedWorkflows: [Swift.String], download: Swift.Bool?, syncComplete: Swift.Bool, localFilePath: Swift.String?, fileName: Swift.String)
+}
+public struct ObjectIdGenerator {
+  public static func generate() -> Swift.String
+}
+public typealias CloneableObserverToken = Foundation.UUID
+public enum CloneableConnectionState {
+  case connecting
+  case connected
+  case disconnected
+  public static func == (a: CloneableCore.CloneableConnectionState, b: CloneableCore.CloneableConnectionState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum CloneableSyncStatus {
+  case not_synced
+  case syncing
+  case synced
+  case sync_error
+  public static func == (a: CloneableCore.CloneableSyncStatus, b: CloneableCore.CloneableSyncStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum CloneableAuthStatus {
+  case offline
+  case not_authenticated
+  case auth_error
+  case authenticating
+  case authenticated
+  public static func == (a: CloneableCore.CloneableAuthStatus, b: CloneableCore.CloneableAuthStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public typealias CloneableObject = Cloneable_Swift_Client.DataObjectSchema
+public typealias ObjectField = Cloneable_Swift_Client.DataObjectSchemaFieldsInner
+extension Cloneable_Swift_Client.DataObjectSchema : Swift.Identifiable {
+  public typealias ID = Swift.String
+}
+extension Cloneable_Swift_Client.DataObjectSchema {
+  public func deepCopy() -> Cloneable_Swift_Client.DataObjectSchema?
+}
+extension Cloneable_Swift_Client.DataObjectSchemaFieldsInner {
+  public mutating func upsertFieldValue(_ value: CloneableCore.AnyCloneableData, userId: Swift.String)
+}
+extension Cloneable_Swift_Client.DataObjectSchema {
+  public init(deployedWorkflow: CloneableCore.DeployedWorkflow_objects, userId: Swift.String)
+}
+extension Cloneable_Swift_Client.DataObjectSchemaFieldsInner {
+  public init(field: CloneableCore.DeployedWorkflow_object_field, userId: Swift.String)
+}
+public typealias CloneableWorkflow = Cloneable_Swift_Client.CompletedWorkflowSchema
+public typealias CloneableWorkflow_auditTimeline = Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner
+public typealias CloneableWorkflow_relatedObjectTypes = Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner
+public typealias DeployedWorkflow_components = Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner
+public typealias DeployedWorkflow_objects = Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner
+public typealias DeployedWorkflow_object_field = Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner
+public struct OutputConnection {
+  public var targetInputStaticID: Swift.String
+  public var targetDynamicID: Swift.String
+  public var targetInput: Swift.String
+  public var targetStaticID: Swift.String
+  public var targetType: Swift.String
+  public init(targetInputStaticID: Swift.String, targetDynamicID: Swift.String, targetInput: Swift.String, targetStaticID: Swift.String, targetType: Swift.String)
+}
+public typealias NotificationRequest = Cloneable_Swift_Client.NotificationRequestSchema
+public typealias NotificationRequest_targetSMSNumbers = Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner
+public typealias NotificationRequest_roles_channels = CloneableCore.NotificationRequest.TargetCompanyRolesChannels
+@_hasMissingDesignatedInitializers public class DataCache {
+  @objc deinit
+}
+public enum ComponentType : Swift.String {
+  case ios_workflow_start
+  case ios_workflow_end
+  case cloud_workflow_start
+  case cloud_workflow_end
+  case ui
+  case processing
+  case object
+  case logical
+  case file_data
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum ComponentRuntime : Swift.String {
+  case ios
+  case cloud
+  case web
+  case android
+  case edge_linux
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public protocol ComponentSubscriber {
+  var staticComponentID: Swift.String? { get set }
+  var dynamicComponentID: Swift.String? { get set }
+  var component: CloneableCore.DeployedWorkflow_components? { get set }
+  init()
+  func frameworkInit(dynamicComponentID: Swift.String, staticComponentID: Swift.String, component: CloneableCore.DeployedWorkflow_components)
+  func componentWillDeInit(final: Swift.Bool)
+  func acceptNewInputs(inputs: [CloneableCore.DataInput])
+  func navigateButtonTriggeredByFramework()
+}
+extension CloneableCore.ComponentSubscriber {
+  public func navigateButtonTriggeredByFramework()
+}
+public struct Component {
+  public var id: Swift.String
+  public var type: CloneableCore.ComponentType
+  public var processingType: (any CloneableCore.ComponentSubscriber.Type)?
+  public var runtimes: Swift.Array<CloneableCore.ComponentRuntime>
+  public init(id: Swift.String, type: CloneableCore.ComponentType, runtimes: Swift.Array<CloneableCore.ComponentRuntime>, processingType: (any CloneableCore.ComponentSubscriber.Type)? = nil)
+}
+public protocol WorkflowService {
+  func subscribeComponent(subscriber: any CloneableCore.ComponentSubscriber, dynamicComponentID: Swift.String, staticComponentID: Swift.String)
+}
+public protocol NavigationCoordinator {
+  func promptWorkflowEnd()
+  func navigate(staticComponentID: Swift.String, dynamicComponentID: Swift.String)
+  func endWorkflow()
+  func cancelWorkflow()
+  func shareNotification(notification: CloneableCore.CloneableLog, display: CloneableCore.DisplayMode)
+  func selectWorkflow(workflowId: Swift.String)
+}
+extension CloneableCore.WorkflowFramework {
+  public func recieveNotificationRequest(dynamicComponentID: Swift.String, notificationRequest: CloneableCore.NotificationRequest)
+  public func sendNotificationRequestsToSyncedRealm()
+  #if compiler(>=5.3) && $AsyncAwait
+  public func sendNotificationRequestToSyncedRealm(notificationRequest: CloneableCore.NotificationRequest) async throws
+  #endif
+}
+public protocol CloneableLocationManager {
+  init()
+  func getCurrentLocation() throws -> CloneableCore.CloneableLocation?
+}
+public protocol CloneableDataOutput {
+  var outputUniqueID: Foundation.UUID { get set }
+  var outputCount: Swift.Int { get set }
+  var data: CloneableCore.AnyCloneableData { get set }
+  var outputComponentType: CloneableCore.ComponentType { get set }
+  var staticComponentID: Swift.String { get set }
+  var dynamicComponentID: Swift.String { get set }
+  var dynamicOutputID: Swift.String { get set }
+  var outputTime: Foundation.Date { get set }
+  var targetInput: CloneableCore.TargetInput? { get set }
+  var batch: Swift.Int? { get set }
+}
+public protocol CloneableDataInput {
+  var inputDynamicID: Swift.String { get set }
+  var data: CloneableCore.AnyCloneableData { get set }
+  var batch: Swift.Int? { get set }
+  var creationTime: Foundation.Date { get set }
+  var currentBatch: Swift.Bool { get set }
+}
+public struct DataInput : CloneableCore.CloneableDataInput {
+  public var componentDynamicID: Swift.String
+  public var inputDynamicID: Swift.String
+  public var inputStaticID: Swift.String
+  public var data: CloneableCore.AnyCloneableData
+  public var batch: Swift.Int?
+  public var creationTime: Foundation.Date
+  public var currentBatch: Swift.Bool
+  public init(componentDynamicID: Swift.String, inputStaticID: Swift.String, inputDynamicID: Swift.String, data: CloneableCore.AnyCloneableData, batch: Swift.Int?, creationTime: Foundation.Date, currentBatch: Swift.Bool)
+}
+public struct DataOutput : CloneableCore.CloneableDataOutput {
+  public var outputUniqueID: Foundation.UUID
+  public var outputCount: Swift.Int
+  public var dynamicOutputID: Swift.String
+  public var data: CloneableCore.AnyCloneableData
+  public var staticComponentID: Swift.String
+  public var dynamicComponentID: Swift.String
+  public var typeDescription: Swift.String
+  public var outputTime: Foundation.Date
+  public var outputComponentType: CloneableCore.ComponentType
+  public var targetInput: CloneableCore.TargetInput?
+  public var batch: Swift.Int?
+  public init(data: CloneableCore.AnyCloneableData, staticComponentID: Swift.String, dynamicComponentID: Swift.String, dynamicOutputID: Swift.String, outputComponentType: CloneableCore.ComponentType, targetInput: CloneableCore.TargetInput? = nil)
+  public func convertToDataInput(firstCall: Swift.Bool = false) -> CloneableCore.DataInput
+}
+public struct TargetInput : Swift.Equatable {
+  public var componentType: CloneableCore.ComponentType
+  public var targetInputStaticID: Swift.String
+  public var targetInputDynamicID: Swift.String
+  public var targetComponentStaticID: Swift.String
+  public var targetComponentDynamicID: Swift.String
+  public var objectFieldOutputDynamicID: Swift.String?
+  public static func == (lhs: CloneableCore.TargetInput, rhs: CloneableCore.TargetInput) -> Swift.Bool
+}
+public var workflowFramework: CloneableCore.WorkflowFramework?
+@_hasMissingDesignatedInitializers public class WorkflowFramework : CloneableCore.WorkflowService {
+  public var activeUIComponent: Swift.String?
+  public var headerHeight: CoreFoundation.CGFloat
+  @objc deinit
+}
+extension CloneableCore.WorkflowFramework {
+  public func subscribeComponent(subscriber: any CloneableCore.ComponentSubscriber, dynamicComponentID: Swift.String, staticComponentID: Swift.String)
+  public func getComponent(dynamicID: Swift.String) -> CloneableCore.DeployedWorkflow_components
+}
+extension CloneableCore.WorkflowFramework {
+  public func getComponentTitle(dynamicComponentID: Swift.String) -> Swift.String
+  public func getNextButtonInBarText(dynamicComponentID: Swift.String) -> Swift.String?
+  public func navigateButtonTriggeredByFramework(dynamicComponentID: Swift.String)
+  public func componentWillPopBack(dynamicComponentID: Swift.String)
+  public func endWorkflow()
+  public func cancelWorkflow()
+}
+extension CloneableCore.WorkflowFramework {
+  public func sendNotification(notification: CloneableCore.CloneableLog, display: CloneableCore.DisplayMode)
+}
+extension CloneableCore.WorkflowFramework {
+  public func getObjectsOfType(objectID: Swift.String, objectTemplateRevision: Swift.Int, searchString: Swift.String = "") -> [CloneableCore.CloneableObject]
+  public func getLiveObject(instanceID: Foundation.UUID) -> CloneableCore.CloneableObject?
+}
+extension CloneableCore.WorkflowFramework {
+  public func getObjectByDynamicID(dynamicObjectID: Swift.String) -> CloneableCore.DeployedWorkflow_objects?
+  public func getFileInformation(fileID: Foundation.UUID) -> CloneableCore.SyncedFileInformationV2?
+  public func getFileData(fileID: Swift.String, completion: @escaping (Foundation.Data?) -> Swift.Void)
+  public func getDataManager() -> CloneableCore.DataManager
+  public func getUserInformation() -> Cloneable_Swift_Client.UserSchema?
+  public func getWorkflowRunID() -> Foundation.UUID
+  public func getWorkflowName() -> Swift.String
+  public func getDeployedWorkflowID() -> Swift.String
+}
+extension CloneableCore.WorkflowFramework {
+  public func sendOutputsToFramework(outputs: [CloneableCore.DataOutput])
+}
+extension CloneableCore.ModelToSync : Swift.Equatable {}
+extension CloneableCore.ModelToSync : Swift.Hashable {}
+extension CloneableCore.ModelToSync : Swift.RawRepresentable {}
+extension CloneableCore.APICallStatus : Swift.Equatable {}
+extension CloneableCore.APICallStatus : Swift.Hashable {}
+extension CloneableCore.APICallStatus : Swift.RawRepresentable {}
+extension CloneableCore.FileInformationCallType : Swift.Equatable {}
+extension CloneableCore.FileInformationCallType : Swift.Hashable {}
+extension CloneableCore.FileInformationCallType : Swift.RawRepresentable {}
+extension CloneableCore.CompletedWorkflowCallType : Swift.Equatable {}
+extension CloneableCore.CompletedWorkflowCallType : Swift.Hashable {}
+extension CloneableCore.CompletedWorkflowCallType : Swift.RawRepresentable {}
+extension CloneableCore.NotificationRequestCallType : Swift.Equatable {}
+extension CloneableCore.NotificationRequestCallType : Swift.Hashable {}
+extension CloneableCore.NotificationRequestCallType : Swift.RawRepresentable {}
+extension CloneableCore.DataObjectCallType : Swift.Equatable {}
+extension CloneableCore.DataObjectCallType : Swift.Hashable {}
+extension CloneableCore.DataObjectCallType : Swift.RawRepresentable {}
+extension CloneableCore.LogLevel : Swift.Equatable {}
+extension CloneableCore.LogLevel : Swift.Hashable {}
+extension CloneableCore.LogLevel : Swift.RawRepresentable {}
+extension CloneableCore.DisplayMode : Swift.Equatable {}
+extension CloneableCore.DisplayMode : Swift.Hashable {}
+extension CloneableCore.CloneableDataError : Swift.Equatable {}
+extension CloneableCore.CloneableDataError : Swift.Hashable {}
+extension CloneableCore.CloneableFileType : Swift.Equatable {}
+extension CloneableCore.CloneableFileType : Swift.Hashable {}
+extension CloneableCore.CloneableFileType : Swift.RawRepresentable {}
+extension CloneableCore.TrackState : Swift.Equatable {}
+extension CloneableCore.TrackState : Swift.Hashable {}
+extension CloneableCore.TrackState : Swift.RawRepresentable {}
+extension CloneableCore.RUNTIME_ENVIRONMENT : Swift.Equatable {}
+extension CloneableCore.RUNTIME_ENVIRONMENT : Swift.Hashable {}
+extension CloneableCore.APIError : Swift.Equatable {}
+extension CloneableCore.APIError : Swift.Hashable {}
+extension CloneableCore.AuthenticationError : Swift.Equatable {}
+extension CloneableCore.AuthenticationError : Swift.Hashable {}
+extension CloneableCore.CloneableSyncError : Swift.Equatable {}
+extension CloneableCore.CloneableSyncError : Swift.Hashable {}
+extension CloneableCore.FileSyncRelation : Swift.Equatable {}
+extension CloneableCore.FileSyncRelation : Swift.Hashable {}
+extension CloneableCore.FileSyncRelation : Swift.RawRepresentable {}
+extension CloneableCore.CloneableConnectionState : Swift.Equatable {}
+extension CloneableCore.CloneableConnectionState : Swift.Hashable {}
+extension CloneableCore.CloneableSyncStatus : Swift.Equatable {}
+extension CloneableCore.CloneableSyncStatus : Swift.Hashable {}
+extension CloneableCore.CloneableAuthStatus : Swift.Equatable {}
+extension CloneableCore.CloneableAuthStatus : Swift.Hashable {}
+extension CloneableCore.ComponentType : Swift.Equatable {}
+extension CloneableCore.ComponentType : Swift.Hashable {}
+extension CloneableCore.ComponentType : Swift.RawRepresentable {}
+extension CloneableCore.ComponentRuntime : Swift.Equatable {}
+extension CloneableCore.ComponentRuntime : Swift.Hashable {}
+extension CloneableCore.ComponentRuntime : Swift.RawRepresentable {}
