@@ -12,7 +12,6 @@ let package = Package(
                      "Alamofire",
                      "JXKit",
                      "SQLite",
-                     "ZIPFoundation",
                      "Cloneable_Swift_Client",
                      "AnyCodable"]),
     ],
@@ -35,10 +34,6 @@ let package = Package(
         .binaryTarget(
             name: "SQLite",
             path: "./SQLite.xcframework"
-        ),
-        .binaryTarget(
-            name: "ZIPFoundation",
-            path: "./ZIPFoundation.xcframework"
         ),
         .binaryTarget(
             name: "Cloneable_Swift_Client",
