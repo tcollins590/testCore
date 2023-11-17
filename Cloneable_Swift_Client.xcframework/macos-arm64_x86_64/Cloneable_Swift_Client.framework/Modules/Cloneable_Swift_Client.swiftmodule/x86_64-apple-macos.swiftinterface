@@ -1,0 +1,2698 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target x86_64-apple-macos10.13 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Cloneable_Swift_Client
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Alamofire
+import AnyCodable
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct APIHelper {
+  public static func rejectNil(_ source: [Swift.String : Any?]) -> [Swift.String : Any]?
+  public static func rejectNilHeaders(_ source: [Swift.String : Any?]) -> [Swift.String : Swift.String]
+  public static func convertBoolToString(_ source: [Swift.String : Any]?) -> [Swift.String : Any]?
+  public static func convertAnyToString(_ value: Any?) -> Swift.String?
+  public static func mapValueToPathItem(_ source: Any) -> Any
+  public static func mapValuesToQueryItems(_ source: [Swift.String : (wrappedValue: Any?, isExplode: Swift.Bool)]) -> [Foundation.URLQueryItem]?
+  public static func mapValuesToQueryItems(_ source: [Swift.String : Any?]) -> [Foundation.URLQueryItem]?
+}
+@_hasMissingDesignatedInitializers open class Cloneable_Swift_ClientAPI {
+  public static var basePath: Swift.String
+  public static var customHeaders: [Swift.String : Swift.String]
+  public static var credential: Foundation.URLCredential?
+  public static var requestBuilderFactory: any Cloneable_Swift_Client.RequestBuilderFactory
+  public static var apiResponseQueue: Dispatch.DispatchQueue
+  @objc deinit
+}
+open class RequestBuilder<T> {
+  final public let parameters: [Swift.String : Any]?
+  final public let method: Swift.String
+  final public let URLString: Swift.String
+  final public let requestTask: Cloneable_Swift_Client.RequestTask
+  final public let requiresAuthentication: Swift.Bool
+  public var onProgressReady: ((Foundation.Progress) -> Swift.Void)?
+  required public init(method: Swift.String, URLString: Swift.String, parameters: [Swift.String : Any]?, headers: [Swift.String : Swift.String] = [:], requiresAuthentication: Swift.Bool)
+  open func addHeaders(_ aHeaders: [Swift.String : Swift.String])
+  @discardableResult
+  open func execute(_ apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Cloneable_Swift_Client.Response<T>, Cloneable_Swift_Client.ErrorResponse>) -> Swift.Void) -> Cloneable_Swift_Client.RequestTask
+  public func addHeader(name: Swift.String, value: Swift.String) -> Self
+  open func addCredential() -> Self
+  @objc deinit
+}
+public protocol RequestBuilderFactory {
+  func getNonDecodableBuilder<T>() -> Cloneable_Swift_Client.RequestBuilder<T>.Type
+  func getBuilder<T>() -> Cloneable_Swift_Client.RequestBuilder<T>.Type where T : Swift.Decodable
+}
+@_hasMissingDesignatedInitializers open class CompletedWorkflowAPI {
+  @discardableResult
+  open class func createCompletedWorkflow(createCompletedWorkflowSchema: Cloneable_Swift_Client.CreateCompletedWorkflowSchema? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.UpdateFile200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func createCompletedWorkflowWithRequestBuilder(createCompletedWorkflowSchema: Cloneable_Swift_Client.CreateCompletedWorkflowSchema? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.UpdateFile200Response>
+  @discardableResult
+  open class func getCompletedWorkflows(getCompletedWorkflowsRequest: Cloneable_Swift_Client.GetCompletedWorkflowsRequest? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Cloneable_Swift_Client.CompletedWorkflowSchema]?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getCompletedWorkflowsWithRequestBuilder(getCompletedWorkflowsRequest: Cloneable_Swift_Client.GetCompletedWorkflowsRequest? = nil) -> Cloneable_Swift_Client.RequestBuilder<[Cloneable_Swift_Client.CompletedWorkflowSchema]>
+  @discardableResult
+  open class func getOneCompletedWorkflow(id: Swift.String, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.CompletedWorkflowSchema?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getOneCompletedWorkflowWithRequestBuilder(id: Swift.String) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.CompletedWorkflowSchema>
+  @discardableResult
+  open class func updateCompletedWorkflow(id: Swift.String, updateCompletedWorkflowSchema: Cloneable_Swift_Client.UpdateCompletedWorkflowSchema? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.UpdateFile200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func updateCompletedWorkflowWithRequestBuilder(id: Swift.String, updateCompletedWorkflowSchema: Cloneable_Swift_Client.UpdateCompletedWorkflowSchema? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.UpdateFile200Response>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class DataObjectAPI {
+  @discardableResult
+  open class func createDataObject(dataObjectSchema: Cloneable_Swift_Client.DataObjectSchema? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.UpdateFile200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func createDataObjectWithRequestBuilder(dataObjectSchema: Cloneable_Swift_Client.DataObjectSchema? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.UpdateFile200Response>
+  @discardableResult
+  open class func getDataObjects(getDataObjectsRequest: Cloneable_Swift_Client.GetDataObjectsRequest? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Cloneable_Swift_Client.DataObjectSchema]?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getDataObjectsWithRequestBuilder(getDataObjectsRequest: Cloneable_Swift_Client.GetDataObjectsRequest? = nil) -> Cloneable_Swift_Client.RequestBuilder<[Cloneable_Swift_Client.DataObjectSchema]>
+  @discardableResult
+  open class func getDataObjectsPaged(search: Swift.String? = nil, pageIndex: Swift.Int? = nil, pageSize: Swift.Int? = nil, filters: Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter? = nil, latest: Swift.String? = nil, sorting: Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.GetDataObjectsPaged200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getDataObjectsPagedWithRequestBuilder(search: Swift.String? = nil, pageIndex: Swift.Int? = nil, pageSize: Swift.Int? = nil, filters: Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter? = nil, latest: Swift.String? = nil, sorting: Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.GetDataObjectsPaged200Response>
+  @discardableResult
+  open class func getOneDataObject(id: Swift.String, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.DataObjectSchema?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getOneDataObjectWithRequestBuilder(id: Swift.String) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.DataObjectSchema>
+  @discardableResult
+  open class func updateDataObjectField(id: Swift.String, updateDataObjectFieldsSchema: [Cloneable_Swift_Client.UpdateDataObjectFieldsSchema]? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.UpdateFile200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func updateDataObjectFieldWithRequestBuilder(id: Swift.String, updateDataObjectFieldsSchema: [Cloneable_Swift_Client.UpdateDataObjectFieldsSchema]? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.UpdateFile200Response>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class DeployedWorfklowAPI {
+  @discardableResult
+  open class func getDeployedWorkflows(getDeployedWorkflowsRequest: Cloneable_Swift_Client.GetDeployedWorkflowsRequest? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Cloneable_Swift_Client.DeployedWorkflowSchema]?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getDeployedWorkflowsWithRequestBuilder(getDeployedWorkflowsRequest: Cloneable_Swift_Client.GetDeployedWorkflowsRequest? = nil) -> Cloneable_Swift_Client.RequestBuilder<[Cloneable_Swift_Client.DeployedWorkflowSchema]>
+  @discardableResult
+  open class func getOneDeployedWorkflow(id: Swift.String, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.DeployedWorkflowSchema?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getOneDeployedWorkflowWithRequestBuilder(id: Swift.String) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.DeployedWorkflowSchema>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class FileAPI {
+  @discardableResult
+  open class func createFile(createFileSchema: Cloneable_Swift_Client.CreateFileSchema? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.CreateFile201Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func createFileWithRequestBuilder(createFileSchema: Cloneable_Swift_Client.CreateFileSchema? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.CreateFile201Response>
+  @discardableResult
+  open class func getFileDownloadUrl(id: Swift.String, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.GetFileDownloadUrl200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getFileDownloadUrlWithRequestBuilder(id: Swift.String) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.GetFileDownloadUrl200Response>
+  @discardableResult
+  open class func getFiles(getFilesRequest: Cloneable_Swift_Client.GetFilesRequest? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Cloneable_Swift_Client.FileSchema]?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getFilesWithRequestBuilder(getFilesRequest: Cloneable_Swift_Client.GetFilesRequest? = nil) -> Cloneable_Swift_Client.RequestBuilder<[Cloneable_Swift_Client.FileSchema]>
+  @discardableResult
+  open class func getOneFile(id: Swift.String, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.FileSchema?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getOneFileWithRequestBuilder(id: Swift.String) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.FileSchema>
+  @discardableResult
+  open class func retryFileUploadUrl(id: Swift.String, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.RetryFileUploadUrl200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func retryFileUploadUrlWithRequestBuilder(id: Swift.String) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.RetryFileUploadUrl200Response>
+  @discardableResult
+  open class func updateFile(id: Swift.String, insertFileSchema: Cloneable_Swift_Client.InsertFileSchema? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.UpdateFile200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func updateFileWithRequestBuilder(id: Swift.String, insertFileSchema: Cloneable_Swift_Client.InsertFileSchema? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.UpdateFile200Response>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class NotificationAPI {
+  @discardableResult
+  open class func createNotification(notificationRequestSchema: Cloneable_Swift_Client.NotificationRequestSchema? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.UpdateFile200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func createNotificationWithRequestBuilder(notificationRequestSchema: Cloneable_Swift_Client.NotificationRequestSchema? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.UpdateFile200Response>
+  @discardableResult
+  open class func getNotifications(getNotificationsRequest: Cloneable_Swift_Client.GetNotificationsRequest? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: [Cloneable_Swift_Client.NotificationSchema]?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getNotificationsWithRequestBuilder(getNotificationsRequest: Cloneable_Swift_Client.GetNotificationsRequest? = nil) -> Cloneable_Swift_Client.RequestBuilder<[Cloneable_Swift_Client.NotificationSchema]>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class OpenapiAPI {
+  @discardableResult
+  open class func getOpenAPIJSON(apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: AnyCodable?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getOpenAPIJSONWithRequestBuilder() -> Cloneable_Swift_Client.RequestBuilder<AnyCodable>
+  @discardableResult
+  open class func getOpenAPIPage(apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Swift.Void?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getOpenAPIPageWithRequestBuilder() -> Cloneable_Swift_Client.RequestBuilder<Swift.Void>
+  @discardableResult
+  open class func getOpenAPIYaml(apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Swift.Void?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getOpenAPIYamlWithRequestBuilder() -> Cloneable_Swift_Client.RequestBuilder<Swift.Void>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class OrgAPI {
+  @discardableResult
+  open class func createOrg(orgSchema: Cloneable_Swift_Client.OrgSchema? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.UpdateFile200Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func createOrgWithRequestBuilder(orgSchema: Cloneable_Swift_Client.OrgSchema? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.UpdateFile200Response>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class SupportAPI {
+  @discardableResult
+  open class func sendFeedback(sendFeedbackRequest: Cloneable_Swift_Client.SendFeedbackRequest? = nil, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.CreateFile400Response?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func sendFeedbackWithRequestBuilder(sendFeedbackRequest: Cloneable_Swift_Client.SendFeedbackRequest? = nil) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.CreateFile400Response>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class UserAPI {
+  @discardableResult
+  open class func getUser(id: Swift.String, apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Cloneable_Swift_Client.UserSchema?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getUserWithRequestBuilder(id: Swift.String) -> Cloneable_Swift_Client.RequestBuilder<Cloneable_Swift_Client.UserSchema>
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class AlamofireRequestBuilder<T> : Cloneable_Swift_Client.RequestBuilder<T> {
+  required public init(method: Swift.String, URLString: Swift.String, parameters: [Swift.String : Any]?, headers: [Swift.String : Swift.String] = [:], requiresAuthentication: Swift.Bool)
+  open func createAlamofireSession(interceptor: (any Alamofire.RequestInterceptor)? = nil) -> Alamofire.Session
+  open func createURLRequest() -> Foundation.URLRequest?
+  open func contentTypeForFormPart(fileURL: Foundation.URL) -> Swift.String?
+  open func makeRequest(manager: Alamofire.Session, method: Alamofire.HTTPMethod, encoding: any Alamofire.ParameterEncoding, headers: [Swift.String : Swift.String]) -> Alamofire.DataRequest
+  @discardableResult
+  override open func execute(_ apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, _ completion: @escaping (_ result: Swift.Result<Cloneable_Swift_Client.Response<T>, Cloneable_Swift_Client.ErrorResponse>) -> Swift.Void) -> Cloneable_Swift_Client.RequestTask
+  open func buildHeaders() -> [Swift.String : Swift.String]
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class AlamofireDecodableRequestBuilder<T> : Cloneable_Swift_Client.AlamofireRequestBuilder<T> where T : Swift.Decodable {
+  required public init(method: Swift.String, URLString: Swift.String, parameters: [Swift.String : Any]?, headers: [Swift.String : Swift.String] = super, requiresAuthentication: Swift.Bool)
+  @objc deinit
+}
+extension Cloneable_Swift_Client.JSONDataEncoding : Alamofire.ParameterEncoding {
+  public func encode(_ urlRequest: any Alamofire.URLRequestConvertible, with parameters: Alamofire.Parameters?) throws -> Foundation.URLRequest
+}
+@_hasMissingDesignatedInitializers open class CodableHelper {
+  public static var dateFormatter: Foundation.DateFormatter {
+    get
+    set
+  }
+  public static var jsonDecoder: Foundation.JSONDecoder {
+    get
+    set
+  }
+  public static var jsonEncoder: Foundation.JSONEncoder {
+    get
+    set
+  }
+  open class func decode<T>(_ type: T.Type, from data: Foundation.Data) -> Swift.Result<T, any Swift.Error> where T : Swift.Decodable
+  open class func encode<T>(_ value: T) -> Swift.Result<Foundation.Data, any Swift.Error> where T : Swift.Encodable
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Configuration {
+  public static var successfulStatusCodeRange: Swift.Range<Swift.Int>
+  public static var dataResponseSerializer: Cloneable_Swift_Client.AnyResponseSerializer<Foundation.Data>
+  public static var stringResponseSerializer: Cloneable_Swift_Client.AnyResponseSerializer<Swift.String>
+  @objc deinit
+}
+public struct AnyResponseSerializer<T> : Alamofire.ResponseSerializer {
+  public init<V>(_ delegatee: V) where T == V.SerializedObject, V : Alamofire.ResponseSerializer
+  public func serialize(request: Foundation.URLRequest?, response: Foundation.HTTPURLResponse?, data: Foundation.Data?, error: (any Swift.Error)?) throws -> T
+  public typealias SerializedObject = T
+}
+extension Swift.String : Swift.CodingKey {
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(stringValue: Swift.String)
+  public var intValue: Swift.Int? {
+    get
+  }
+  public init?(intValue: Swift.Int)
+}
+extension Swift.KeyedEncodingContainerProtocol {
+  public mutating func encodeArray<T>(_ values: [T], forKey key: Self.Key) throws where T : Swift.Encodable
+  public mutating func encodeArrayIfPresent<T>(_ values: [T]?, forKey key: Self.Key) throws where T : Swift.Encodable
+  public mutating func encodeMap<T>(_ pairs: [Self.Key : T]) throws where T : Swift.Encodable, Self.Key : Swift.Hashable
+  public mutating func encodeMapIfPresent<T>(_ pairs: [Self.Key : T]?) throws where T : Swift.Encodable, Self.Key : Swift.Hashable
+  public mutating func encode(_ value: Foundation.Decimal, forKey key: Self.Key) throws
+  public mutating func encodeIfPresent(_ value: Foundation.Decimal?, forKey key: Self.Key) throws
+}
+extension Swift.KeyedDecodingContainerProtocol {
+  public func decodeArray<T>(_ type: T.Type, forKey key: Self.Key) throws -> [T] where T : Swift.Decodable
+  public func decodeArrayIfPresent<T>(_ type: T.Type, forKey key: Self.Key) throws -> [T]? where T : Swift.Decodable
+  public func decodeMap<T>(_ type: T.Type, excludedKeys: Swift.Set<Self.Key>) throws -> [Self.Key : T] where T : Swift.Decodable, Self.Key : Swift.Hashable
+  public func decode(_ type: Foundation.Decimal.Type, forKey key: Self.Key) throws -> Foundation.Decimal
+  public func decodeIfPresent(_ type: Foundation.Decimal.Type, forKey key: Self.Key) throws -> Foundation.Decimal?
+}
+public struct JSONDataEncoding {
+  public func encode(_ urlRequest: Foundation.URLRequest, with parameters: [Swift.String : Any]?) -> Foundation.URLRequest
+  public static func encodingParameters(jsonData: Foundation.Data?) -> [Swift.String : Any]?
+}
+@_hasMissingDesignatedInitializers open class JSONEncodingHelper {
+  open class func encodingParameters<T>(forEncodableObject encodableObj: T?) -> [Swift.String : Any]? where T : Swift.Encodable
+  open class func encodingParameters(forEncodableObject encodableObj: Any?) -> [Swift.String : Any]?
+  @objc deinit
+}
+public enum NullEncodable<Wrapped> : Swift.Hashable where Wrapped : Swift.Hashable {
+  case encodeNothing
+  case encodeNull
+  case encodeValue(Wrapped)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.NullEncodable<Wrapped>, b: Cloneable_Swift_Client.NullEncodable<Wrapped>) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Cloneable_Swift_Client.NullEncodable : Swift.Codable where Wrapped : Swift.Decodable, Wrapped : Swift.Encodable {
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum ErrorResponse : Swift.Error {
+  case error(Swift.Int, Foundation.Data?, Foundation.URLResponse?, any Swift.Error)
+}
+public enum DownloadException : Swift.Error {
+  case responseDataMissing
+  case responseFailed
+  case requestMissing
+  case requestMissingPath
+  case requestMissingURL
+  public static func == (a: Cloneable_Swift_Client.DownloadException, b: Cloneable_Swift_Client.DownloadException) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum DecodableRequestBuilderError : Swift.Error {
+  case emptyDataResponse
+  case nilHTTPResponse
+  case unsuccessfulHTTPStatusCode
+  case jsonDecoding(Swift.DecodingError)
+  case generalError(any Swift.Error)
+}
+open class Response<T> {
+  final public let statusCode: Swift.Int
+  final public let header: [Swift.String : Swift.String]
+  final public let body: T
+  final public let bodyData: Foundation.Data?
+  public init(statusCode: Swift.Int, header: [Swift.String : Swift.String], body: T, bodyData: Foundation.Data?)
+  convenience public init(response: Foundation.HTTPURLResponse, body: T, bodyData: Foundation.Data?)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class RequestTask {
+  final public func cancel()
+  @objc deinit
+}
+public struct CompletedWorkflowSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var companyId: Swift.String
+  public var finalized: Swift.Bool
+  public var finalizedAt: Foundation.Date?
+  public var createdAt: Foundation.Date
+  public var createdBy: Swift.String
+  public var updatedAt: Foundation.Date?
+  public var typeRefId: Swift.String
+  public var relatedObjectTypes: [Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner]?
+  public var workflowInstanceId: Swift.String
+  public var relatedWorkflowTemplateId: Swift.String
+  public var auditTimeline: [Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner]?
+  public init(id: Swift.String, name: Swift.String, companyId: Swift.String, finalized: Swift.Bool, finalizedAt: Foundation.Date? = nil, createdAt: Foundation.Date, createdBy: Swift.String, updatedAt: Foundation.Date? = nil, typeRefId: Swift.String, relatedObjectTypes: [Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner]? = nil, workflowInstanceId: Swift.String, relatedWorkflowTemplateId: Swift.String, auditTimeline: [Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case name
+    case companyId
+    case finalized
+    case finalizedAt
+    case createdAt
+    case createdBy
+    case updatedAt
+    case typeRefId
+    case relatedObjectTypes
+    case workflowInstanceId
+    case relatedWorkflowTemplateId
+    case auditTimeline
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.CompletedWorkflowSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.CompletedWorkflowSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.CompletedWorkflowSchema, b: Cloneable_Swift_Client.CompletedWorkflowSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CompletedWorkflowSchemaAuditTimelineInner : Swift.Codable, Swift.Hashable {
+  public var componentName: Swift.String
+  public var componentType: Swift.String
+  public var dynamicComponentId: Swift.String
+  public var startedAt: Foundation.Date
+  public var staticComponentId: Swift.String
+  public var completedAt: Foundation.Date?
+  public init(componentName: Swift.String, componentType: Swift.String, dynamicComponentId: Swift.String, startedAt: Foundation.Date, staticComponentId: Swift.String, completedAt: Foundation.Date? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case componentName
+    case componentType
+    case dynamicComponentId
+    case startedAt
+    case staticComponentId
+    case completedAt
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner, b: Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CompletedWorkflowSchemaRelatedObjectTypesInner : Swift.Codable, Swift.Hashable {
+  public var objectId: Swift.String
+  public var objectName: Swift.String
+  public init(objectId: Swift.String, objectName: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case objectId
+    case objectName
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner, b: Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CreateCompletedWorkflowSchema : Swift.Codable, Swift.Hashable {
+  public var name: Swift.String
+  public var companyId: Swift.String
+  public var finalized: Swift.Bool
+  public var finalizedAt: Foundation.Date?
+  public var createdAt: Foundation.Date
+  public var createdBy: Swift.String
+  public var updatedAt: Foundation.Date?
+  public var typeRefId: Swift.String
+  public var relatedObjectTypes: [Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner]?
+  public var workflowInstanceId: Swift.String
+  public var relatedWorkflowTemplateId: Swift.String
+  public var auditTimeline: [Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner]?
+  public init(name: Swift.String, companyId: Swift.String, finalized: Swift.Bool, finalizedAt: Foundation.Date? = nil, createdAt: Foundation.Date, createdBy: Swift.String, updatedAt: Foundation.Date? = nil, typeRefId: Swift.String, relatedObjectTypes: [Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner]? = nil, workflowInstanceId: Swift.String, relatedWorkflowTemplateId: Swift.String, auditTimeline: [Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case name
+    case companyId
+    case finalized
+    case finalizedAt
+    case createdAt
+    case createdBy
+    case updatedAt
+    case typeRefId
+    case relatedObjectTypes
+    case workflowInstanceId
+    case relatedWorkflowTemplateId
+    case auditTimeline
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.CreateCompletedWorkflowSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.CreateCompletedWorkflowSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.CreateCompletedWorkflowSchema, b: Cloneable_Swift_Client.CreateCompletedWorkflowSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CreateFile201Response : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var uploadUrl: Swift.String
+  public init(id: Swift.String, uploadUrl: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case uploadUrl
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.CreateFile201Response.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.CreateFile201Response.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.CreateFile201Response, b: Cloneable_Swift_Client.CreateFile201Response) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CreateFile400Response : Swift.Codable, Swift.Hashable {
+  public var message: Swift.String
+  public init(message: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case message
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.CreateFile400Response.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.CreateFile400Response.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.CreateFile400Response, b: Cloneable_Swift_Client.CreateFile400Response) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct CreateFileSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String?
+  public var relatedObjectId: Swift.String?
+  public var relatedWorkflowId: Swift.String?
+  public var typeRefIds: [Swift.String]?
+  public var company: Swift.String
+  public var contentType: Swift.String
+  public var createdAt: Swift.String
+  public var createdBy: Swift.String
+  public var _extension: Swift.String
+  public var name: Swift.String
+  public var displayName: Swift.String
+  public var size: Swift.Double
+  public var type: Swift.String
+  public var syncToEdge: Swift.Bool
+  public var typeRefID: Swift.String?
+  public var additionalProperties: Cloneable_Swift_Client.FileSchemaAdditionalProperties?
+  public var url: Swift.String?
+  public var savedToCloud: Swift.Bool?
+  public var storageProvider: Swift.String?
+  public var storageAuthProviderName: Swift.String?
+  public init(id: Swift.String? = nil, relatedObjectId: Swift.String? = nil, relatedWorkflowId: Swift.String? = nil, typeRefIds: [Swift.String]? = nil, company: Swift.String, contentType: Swift.String, createdAt: Swift.String, createdBy: Swift.String, _extension: Swift.String, name: Swift.String, displayName: Swift.String, size: Swift.Double, type: Swift.String, syncToEdge: Swift.Bool, typeRefID: Swift.String? = nil, additionalProperties: Cloneable_Swift_Client.FileSchemaAdditionalProperties? = nil, url: Swift.String? = nil, savedToCloud: Swift.Bool? = nil, storageProvider: Swift.String? = nil, storageAuthProviderName: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case relatedObjectId
+    case relatedWorkflowId
+    case typeRefIds
+    case company
+    case contentType
+    case createdAt
+    case createdBy
+    case _extension
+    case name
+    case displayName
+    case size
+    case type
+    case syncToEdge
+    case typeRefID
+    case additionalProperties
+    case url
+    case savedToCloud
+    case storageProvider
+    case storageAuthProviderName
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.CreateFileSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.CreateFileSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.CreateFileSchema, b: Cloneable_Swift_Client.CreateFileSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DataObjectSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var companyId: Swift.String
+  public var createdAt: Foundation.Date
+  public var createdBy: Swift.String
+  public var fields: [Cloneable_Swift_Client.DataObjectSchemaFieldsInner]
+  public var modifiedAt: Foundation.Date
+  public var objectDescription: Swift.String
+  public var objectDisplayName: Swift.String
+  public var objectTemplateId: Swift.String
+  public var objectName: Swift.String
+  public var objectRevision: Swift.Double
+  public var objectTemplateRevision: Swift.Double
+  public var typeRefId: Swift.String
+  public init(id: Swift.String, companyId: Swift.String, createdAt: Foundation.Date, createdBy: Swift.String, fields: [Cloneable_Swift_Client.DataObjectSchemaFieldsInner], modifiedAt: Foundation.Date, objectDescription: Swift.String, objectDisplayName: Swift.String, objectTemplateId: Swift.String, objectName: Swift.String, objectRevision: Swift.Double, objectTemplateRevision: Swift.Double, typeRefId: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case companyId
+    case createdAt
+    case createdBy
+    case fields
+    case modifiedAt
+    case objectDescription
+    case objectDisplayName
+    case objectTemplateId
+    case objectName
+    case objectRevision
+    case objectTemplateRevision
+    case typeRefId
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DataObjectSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DataObjectSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DataObjectSchema, b: Cloneable_Swift_Client.DataObjectSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DataObjectSchemaFieldsInner : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var arraySubType: Swift.String?
+  public var displayName: Swift.String
+  public var fieldId: Swift.String
+  public var linkedObjectDisplayName: Swift.String?
+  public var linkedObjectName: Swift.String?
+  public var linkedObjectRevision: Swift.Double?
+  public var linkedObjectTemplateId: Swift.String?
+  public var modifiedAt: Foundation.Date
+  public var modifiedBy: Swift.String
+  public var name: Swift.String
+  public var storedValue: Swift.String?
+  public var type: Swift.String
+  public init(id: Swift.String, arraySubType: Swift.String? = nil, displayName: Swift.String, fieldId: Swift.String, linkedObjectDisplayName: Swift.String? = nil, linkedObjectName: Swift.String? = nil, linkedObjectRevision: Swift.Double? = nil, linkedObjectTemplateId: Swift.String? = nil, modifiedAt: Foundation.Date, modifiedBy: Swift.String, name: Swift.String, storedValue: Swift.String? = nil, type: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case arraySubType
+    case displayName
+    case fieldId
+    case linkedObjectDisplayName
+    case linkedObjectName
+    case linkedObjectRevision
+    case linkedObjectTemplateId
+    case modifiedAt
+    case modifiedBy
+    case name
+    case storedValue
+    case type
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DataObjectSchemaFieldsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DataObjectSchemaFieldsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DataObjectSchemaFieldsInner, b: Cloneable_Swift_Client.DataObjectSchemaFieldsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var companyId: Swift.String
+  public var createdAt: Swift.String
+  public var updatedAt: Swift.String
+  public var createdBy: Swift.String
+  public var environment: Swift.String
+  public var typeRefId: Swift.String
+  public var resources: [Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner]?
+  public var edges: [Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner]
+  public var components: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner]
+  public var objects: [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner]
+  public var revision: Swift.Double
+  public var workflowDescription: Swift.String
+  public var workflowId: Swift.String
+  public var workflowName: Swift.String
+  public init(id: Swift.String, companyId: Swift.String, createdAt: Swift.String, updatedAt: Swift.String, createdBy: Swift.String, environment: Swift.String, typeRefId: Swift.String, resources: [Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner]? = nil, edges: [Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner], components: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner], objects: [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner], revision: Swift.Double, workflowDescription: Swift.String, workflowId: Swift.String, workflowName: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case companyId
+    case createdAt
+    case updatedAt
+    case createdBy
+    case environment
+    case typeRefId
+    case resources
+    case edges
+    case components
+    case objects
+    case revision
+    case workflowDescription
+    case workflowId
+    case workflowName
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchema, b: Cloneable_Swift_Client.DeployedWorkflowSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaComponentsInner : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var availableToAllCompanies: Swift.Bool
+  public var availableDevices: [Swift.String]
+  public var builderCompatibility: Swift.String
+  public var componentId: Swift.String
+  public var componentType: Swift.String
+  public var revision: Swift.Double
+  public var title: Swift.String
+  public var type: Swift.String
+  public var userCustomizedTitle: Swift.String?
+  public var userCustomizedInstructions: Swift.String?
+  public var dynamicComponentId: Swift.String
+  public var additionalProperties: [Swift.String : AnyCodable]?
+  public var nextButtonInBar: Swift.Bool?
+  public var nextButtonInBarText: Swift.String?
+  public var iosHwRequirements: [Swift.String]?
+  public var customizableParameters: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner]
+  public var componentDescription: Swift.String
+  public var dynamicComponentRenderer: Swift.Bool
+  public var useCustomViewForParams: Swift.Bool?
+  public var implementationUrl: Swift.String
+  public var inputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner]
+  public var outputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner]
+  public init(id: Swift.String, availableToAllCompanies: Swift.Bool, availableDevices: [Swift.String], builderCompatibility: Swift.String, componentId: Swift.String, componentType: Swift.String, revision: Swift.Double, title: Swift.String, type: Swift.String, userCustomizedTitle: Swift.String? = nil, userCustomizedInstructions: Swift.String? = nil, dynamicComponentId: Swift.String, additionalProperties: [Swift.String : AnyCodable]? = nil, nextButtonInBar: Swift.Bool? = nil, nextButtonInBarText: Swift.String? = nil, iosHwRequirements: [Swift.String]? = nil, customizableParameters: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner], componentDescription: Swift.String, dynamicComponentRenderer: Swift.Bool, useCustomViewForParams: Swift.Bool? = nil, implementationUrl: Swift.String, inputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner], outputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner])
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case availableToAllCompanies
+    case availableDevices
+    case builderCompatibility
+    case componentId
+    case componentType
+    case revision
+    case title
+    case type
+    case userCustomizedTitle
+    case userCustomizedInstructions
+    case dynamicComponentId
+    case additionalProperties
+    case nextButtonInBar
+    case nextButtonInBarText
+    case iosHwRequirements
+    case customizableParameters
+    case componentDescription
+    case dynamicComponentRenderer
+    case useCustomViewForParams
+    case implementationUrl
+    case inputs
+    case outputs
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner : Swift.Codable, Swift.Hashable {
+  public var paramDataType: Swift.String
+  public var paramDescription: Swift.String
+  public var paramId: Swift.String
+  public var paramGroup: Swift.String?
+  public var paramInputType: Swift.String?
+  public var paramName: Swift.String
+  public var selectedValue: AnyCodable?
+  public var userCustomizable: Swift.Bool?
+  public var relatedInputDynamicId: Swift.String?
+  public var relatedOutputDynamicId: Swift.String?
+  public var selectedValueIsArray: Swift.Bool?
+  public var selectedValueArray: [AnyCodable]?
+  public init(paramDataType: Swift.String, paramDescription: Swift.String, paramId: Swift.String, paramGroup: Swift.String? = nil, paramInputType: Swift.String? = nil, paramName: Swift.String, selectedValue: AnyCodable? = nil, userCustomizable: Swift.Bool? = nil, relatedInputDynamicId: Swift.String? = nil, relatedOutputDynamicId: Swift.String? = nil, selectedValueIsArray: Swift.Bool? = nil, selectedValueArray: [AnyCodable]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case paramDataType
+    case paramDescription
+    case paramId
+    case paramGroup
+    case paramInputType
+    case paramName
+    case selectedValue
+    case userCustomizable
+    case relatedInputDynamicId
+    case relatedOutputDynamicId
+    case selectedValueIsArray
+    case selectedValueArray
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaComponentsInnerInputsInner : Swift.Codable, Swift.Hashable {
+  public var dynamicInputId: Swift.String
+  public var inputClassification: Swift.String?
+  public var group: Swift.String?
+  public var inputDataType: Swift.String
+  public var inputDescription: Swift.String?
+  public var inputId: Swift.String
+  public var inputName: Swift.String
+  public var _required: Swift.Bool?
+  public var acceptsArray: Swift.Bool?
+  public var trigger: Swift.Bool?
+  public var additionalProperties: [Swift.String : AnyCodable]
+  public init(dynamicInputId: Swift.String, inputClassification: Swift.String? = nil, group: Swift.String? = nil, inputDataType: Swift.String, inputDescription: Swift.String? = nil, inputId: Swift.String, inputName: Swift.String, _required: Swift.Bool? = nil, acceptsArray: Swift.Bool? = nil, trigger: Swift.Bool? = nil, additionalProperties: [Swift.String : AnyCodable])
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case dynamicInputId
+    case inputClassification
+    case group
+    case inputDataType
+    case inputDescription
+    case inputId
+    case inputName
+    case _required
+    case acceptsArray
+    case trigger
+    case additionalProperties
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaComponentsInnerOutputsInner : Swift.Codable, Swift.Hashable {
+  public var dynamicOutputId: Swift.String
+  public var group: Swift.String?
+  public var outputImmediately: Swift.Bool?
+  public var outputClassification: Swift.String?
+  public var outputDataType: Swift.String
+  public var outputDescription: Swift.String?
+  public var outputId: Swift.String
+  public var outputName: Swift.String
+  public var _required: Swift.Bool?
+  public var outputsArray: Swift.Bool?
+  public var outputImmediatelyUserDefinable: Swift.Bool?
+  public var additionalProperties: [Swift.String : AnyCodable]
+  public var outputConnections: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner]?
+  public init(dynamicOutputId: Swift.String, group: Swift.String? = nil, outputImmediately: Swift.Bool? = nil, outputClassification: Swift.String? = nil, outputDataType: Swift.String, outputDescription: Swift.String? = nil, outputId: Swift.String, outputName: Swift.String, _required: Swift.Bool? = nil, outputsArray: Swift.Bool? = nil, outputImmediatelyUserDefinable: Swift.Bool? = nil, additionalProperties: [Swift.String : AnyCodable], outputConnections: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case dynamicOutputId
+    case group
+    case outputImmediately
+    case outputClassification
+    case outputDataType
+    case outputDescription
+    case outputId
+    case outputName
+    case _required
+    case outputsArray
+    case outputImmediatelyUserDefinable
+    case additionalProperties
+    case outputConnections
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner : Swift.Codable, Swift.Hashable {
+  public var targetInputStaticId: Swift.String
+  public var targetDynamicId: Swift.String
+  public var targetInput: Swift.String
+  public var targetStaticId: Swift.String
+  public var targetType: Swift.String
+  public init(targetInputStaticId: Swift.String, targetDynamicId: Swift.String, targetInput: Swift.String, targetStaticId: Swift.String, targetType: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case targetInputStaticId
+    case targetDynamicId
+    case targetInput
+    case targetStaticId
+    case targetType
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaEdgesInner : Swift.Codable, Swift.Hashable {
+  public var animated: Swift.Bool
+  public var id: Swift.String
+  public var markerEnd: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd
+  public var source: Swift.String
+  public var sourceHandle: Swift.String
+  public var style: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle
+  public var target: Swift.String
+  public var targetHandle: Swift.String
+  public var type: Swift.String
+  public init(animated: Swift.Bool, id: Swift.String, markerEnd: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd, source: Swift.String, sourceHandle: Swift.String, style: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle, target: Swift.String, targetHandle: Swift.String, type: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case animated
+    case id
+    case markerEnd
+    case source
+    case sourceHandle
+    case style
+    case target
+    case targetHandle
+    case type
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaEdgesInnerMarkerEnd : Swift.Codable, Swift.Hashable {
+  public var type: Swift.String
+  public init(type: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case type
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd, b: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaEdgesInnerStyle : Swift.Codable, Swift.Hashable {
+  public var strokeWidth: Swift.Double
+  public init(strokeWidth: Swift.Double)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case strokeWidth
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle, b: Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaObjectsInner : Swift.Codable, Swift.Hashable {
+  public var company: Swift.String
+  public var createdAt: Swift.String
+  public var createdBy: Swift.String
+  public var objectDynamicCreateNewHandleId: Swift.String
+  public var dynamicObjectId: Swift.String
+  public var typeRefId: Swift.String
+  public var syncOnInputs: Swift.Bool
+  public var outputOnFieldChange: Swift.Bool
+  public var configuration: Swift.String
+  public var fields: [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner]
+  public var id: Swift.String
+  public var isTemplate: Swift.Bool
+  public var modifiedAt: Swift.String
+  public var modifiedBy: Swift.String
+  public var objectDescription: Swift.String
+  public var objectDisplayName: Swift.String
+  public var objectId: Swift.String
+  public var objectName: Swift.String
+  public var objectOutputDynamicId: Swift.String
+  public var revision: Swift.Double
+  public var type: Swift.String
+  public init(company: Swift.String, createdAt: Swift.String, createdBy: Swift.String, objectDynamicCreateNewHandleId: Swift.String, dynamicObjectId: Swift.String, typeRefId: Swift.String, syncOnInputs: Swift.Bool, outputOnFieldChange: Swift.Bool, configuration: Swift.String, fields: [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner], id: Swift.String, isTemplate: Swift.Bool, modifiedAt: Swift.String, modifiedBy: Swift.String, objectDescription: Swift.String, objectDisplayName: Swift.String, objectId: Swift.String, objectName: Swift.String, objectOutputDynamicId: Swift.String, revision: Swift.Double, type: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case company
+    case createdAt
+    case createdBy
+    case objectDynamicCreateNewHandleId
+    case dynamicObjectId
+    case typeRefId
+    case syncOnInputs
+    case outputOnFieldChange
+    case configuration
+    case fields
+    case id
+    case isTemplate
+    case modifiedAt
+    case modifiedBy
+    case objectDescription
+    case objectDisplayName
+    case objectId
+    case objectName
+    case objectOutputDynamicId
+    case revision
+    case type
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaObjectsInnerFieldsInner : Swift.Codable, Swift.Hashable {
+  public var displayName: Swift.String
+  public var dynamicInputId: Swift.String
+  public var arraySubType: Swift.String?
+  public var arrayCloneableSubType: Swift.String?
+  public var dynamicOutputId: Swift.String
+  public var fieldId: Swift.String
+  public var linkedObjectDisplayName: Swift.String?
+  public var linkedObjectId: Swift.String?
+  public var linkedObjectName: Swift.String?
+  public var linkedObjectRevision: Swift.Double?
+  public var name: Swift.String
+  public var type: Swift.String
+  public var statusOptions: [Swift.String]?
+  public var fileInformation: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation?
+  public var outputConnections: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner]?
+  public init(displayName: Swift.String, dynamicInputId: Swift.String, arraySubType: Swift.String? = nil, arrayCloneableSubType: Swift.String? = nil, dynamicOutputId: Swift.String, fieldId: Swift.String, linkedObjectDisplayName: Swift.String? = nil, linkedObjectId: Swift.String? = nil, linkedObjectName: Swift.String? = nil, linkedObjectRevision: Swift.Double? = nil, name: Swift.String, type: Swift.String, statusOptions: [Swift.String]? = nil, fileInformation: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation? = nil, outputConnections: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case displayName
+    case dynamicInputId
+    case arraySubType
+    case arrayCloneableSubType
+    case dynamicOutputId
+    case fieldId
+    case linkedObjectDisplayName
+    case linkedObjectId
+    case linkedObjectName
+    case linkedObjectRevision
+    case name
+    case type
+    case statusOptions
+    case fileInformation
+    case outputConnections
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation : Swift.Codable, Swift.Hashable {
+  public var fileName: Swift.String?
+  public var fileUrl: Swift.String?
+  public var storageProvider: Swift.String?
+  public var storageAuthProviderRefId: Swift.String?
+  public var storageAuthProviderName: Swift.String?
+  public var fileType: Swift.String
+  public var fileExtension: Swift.String?
+  public var fileSize: Swift.Double?
+  public var oneWaySync: Swift.Bool
+  public init(fileName: Swift.String? = nil, fileUrl: Swift.String? = nil, storageProvider: Swift.String? = nil, storageAuthProviderRefId: Swift.String? = nil, storageAuthProviderName: Swift.String? = nil, fileType: Swift.String, fileExtension: Swift.String? = nil, fileSize: Swift.Double? = nil, oneWaySync: Swift.Bool)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case fileName
+    case fileUrl
+    case storageProvider
+    case storageAuthProviderRefId
+    case storageAuthProviderName
+    case fileType
+    case fileExtension
+    case fileSize
+    case oneWaySync
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation, b: Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaResourcesInner : Swift.Codable, Swift.Hashable {
+  public var componentId: Swift.String
+  public var files: [Swift.String]
+  public var objects: [Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner]
+  public init(componentId: Swift.String, files: [Swift.String], objects: [Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner])
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case componentId
+    case files
+    case objects
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeployedWorkflowSchemaResourcesInnerObjectsInner : Swift.Codable, Swift.Hashable {
+  public var templateId: Swift.String
+  public var createdAfter: Swift.String?
+  public init(templateId: Swift.String, createdAfter: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case templateId
+    case createdAfter
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner, b: Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FileSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var relatedObjectId: Swift.String?
+  public var relatedWorkflowId: Swift.String?
+  public var typeRefIds: [Swift.String]?
+  public var company: Swift.String
+  public var contentType: Swift.String
+  public var createdAt: Swift.String
+  public var updatedAt: Swift.String?
+  public var createdBy: Swift.String
+  public var _extension: Swift.String
+  public var name: Swift.String
+  public var displayName: Swift.String
+  public var size: Swift.Double
+  public var type: Swift.String
+  public var url: Swift.String
+  public var savedToCloud: Swift.Bool
+  public var storageAuthProviderName: Swift.String
+  public var storageAuthProviderRefID: Swift.String?
+  public var storageProvider: Swift.String
+  public var syncToEdge: Swift.Bool
+  public var typeRefID: Swift.String?
+  public var additionalProperties: Cloneable_Swift_Client.FileSchemaAdditionalProperties?
+  public init(id: Swift.String, relatedObjectId: Swift.String? = nil, relatedWorkflowId: Swift.String? = nil, typeRefIds: [Swift.String]? = nil, company: Swift.String, contentType: Swift.String, createdAt: Swift.String, updatedAt: Swift.String? = nil, createdBy: Swift.String, _extension: Swift.String, name: Swift.String, displayName: Swift.String, size: Swift.Double, type: Swift.String, url: Swift.String, savedToCloud: Swift.Bool, storageAuthProviderName: Swift.String, storageAuthProviderRefID: Swift.String? = nil, storageProvider: Swift.String, syncToEdge: Swift.Bool, typeRefID: Swift.String? = nil, additionalProperties: Cloneable_Swift_Client.FileSchemaAdditionalProperties? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case relatedObjectId
+    case relatedWorkflowId
+    case typeRefIds
+    case company
+    case contentType
+    case createdAt
+    case updatedAt
+    case createdBy
+    case _extension
+    case name
+    case displayName
+    case size
+    case type
+    case url
+    case savedToCloud
+    case storageAuthProviderName
+    case storageAuthProviderRefID
+    case storageProvider
+    case syncToEdge
+    case typeRefID
+    case additionalProperties
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.FileSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.FileSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.FileSchema, b: Cloneable_Swift_Client.FileSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct FileSchemaAdditionalProperties : Swift.Codable, Swift.Hashable {
+  public var modelType: Swift.String?
+  public var modelVersion: Swift.String?
+  public var modelDescription: Swift.String?
+  public var modelDevice: Swift.String?
+  public var isTemplate: Swift.Bool?
+  public init(modelType: Swift.String? = nil, modelVersion: Swift.String? = nil, modelDescription: Swift.String? = nil, modelDevice: Swift.String? = nil, isTemplate: Swift.Bool? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case modelType
+    case modelVersion
+    case modelDescription
+    case modelDevice
+    case isTemplate
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.FileSchemaAdditionalProperties.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.FileSchemaAdditionalProperties.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.FileSchemaAdditionalProperties, b: Cloneable_Swift_Client.FileSchemaAdditionalProperties) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetCompletedWorkflowsRequest : Swift.Codable, Swift.Hashable {
+  public var id: [Swift.String]?
+  public var filters: Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters?
+  public var latest: Swift.String?
+  public var limit: Swift.Double?
+  public var skip: Swift.Double?
+  public init(id: [Swift.String]? = nil, filters: Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters? = nil, latest: Swift.String? = nil, limit: Swift.Double? = nil, skip: Swift.Double? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case filters
+    case latest
+    case limit
+    case skip
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetCompletedWorkflowsRequest.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetCompletedWorkflowsRequest.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetCompletedWorkflowsRequest, b: Cloneable_Swift_Client.GetCompletedWorkflowsRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetCompletedWorkflowsRequestFilters : Swift.Codable, Swift.Hashable {
+  public var company: Swift.String?
+  public var createdBy: Swift.String?
+  public var createdAt: Swift.String?
+  public var typeRefId: Swift.String?
+  public var finalized: Swift.Bool?
+  public var finalizedAt: Swift.String?
+  public var workflowInstanceId: Swift.String?
+  public var relatedObjectId: Swift.String?
+  public init(company: Swift.String? = nil, createdBy: Swift.String? = nil, createdAt: Swift.String? = nil, typeRefId: Swift.String? = nil, finalized: Swift.Bool? = nil, finalizedAt: Swift.String? = nil, workflowInstanceId: Swift.String? = nil, relatedObjectId: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case company
+    case createdBy
+    case createdAt
+    case typeRefId
+    case finalized
+    case finalizedAt
+    case workflowInstanceId
+    case relatedObjectId
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters, b: Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetDataObjectsPaged200Response : Swift.Codable, Swift.Hashable {
+  public var index: Swift.Int
+  public var size: Swift.Int
+  public var count: Swift.Int
+  public var pages: Swift.Int
+  public var items: [Cloneable_Swift_Client.DataObjectSchema]
+  public init(index: Swift.Int, size: Swift.Int, count: Swift.Int, pages: Swift.Int, items: [Cloneable_Swift_Client.DataObjectSchema])
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case index
+    case size
+    case count
+    case pages
+    case items
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetDataObjectsPaged200Response.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetDataObjectsPaged200Response.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetDataObjectsPaged200Response, b: Cloneable_Swift_Client.GetDataObjectsPaged200Response) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetDataObjectsPagedFiltersParameter : Swift.Codable, Swift.Hashable {
+  public var companyId: Swift.String?
+  public var createdBy: Swift.String?
+  public var createdAt: Swift.String?
+  public var typeRefId: Swift.String?
+  public var active: Swift.Bool?
+  public var environment: Swift.String?
+  public init(companyId: Swift.String? = nil, createdBy: Swift.String? = nil, createdAt: Swift.String? = nil, typeRefId: Swift.String? = nil, active: Swift.Bool? = nil, environment: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case companyId
+    case createdBy
+    case createdAt
+    case typeRefId
+    case active
+    case environment
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter, b: Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetDataObjectsPagedSortingParameter : Swift.Codable, Swift.Hashable {
+  public enum Column : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case createdAt
+    case modifiedAt
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.Column]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.Column] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var column: Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.Column
+  public var desc: Swift.Bool
+  public init(column: Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.Column, desc: Swift.Bool)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case column
+    case desc
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter, b: Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetDataObjectsRequest : Swift.Codable, Swift.Hashable {
+  public var id: [Swift.String]?
+  public var filters: Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter?
+  public var latest: Swift.String?
+  public init(id: [Swift.String]? = nil, filters: Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter? = nil, latest: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case filters
+    case latest
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetDataObjectsRequest.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetDataObjectsRequest.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetDataObjectsRequest, b: Cloneable_Swift_Client.GetDataObjectsRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetDeployedWorkflowsRequest : Swift.Codable, Swift.Hashable {
+  public var id: [Swift.String]?
+  public var filters: Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters?
+  public var latest: Swift.String?
+  public init(id: [Swift.String]? = nil, filters: Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters? = nil, latest: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case filters
+    case latest
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetDeployedWorkflowsRequest.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetDeployedWorkflowsRequest.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetDeployedWorkflowsRequest, b: Cloneable_Swift_Client.GetDeployedWorkflowsRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetDeployedWorkflowsRequestFilters : Swift.Codable, Swift.Hashable {
+  public var companyId: Swift.String?
+  public var createdBy: Swift.String?
+  public var createdAt: Swift.String?
+  public var typeRefId: Swift.String?
+  public var environment: Swift.String?
+  public init(companyId: Swift.String? = nil, createdBy: Swift.String? = nil, createdAt: Swift.String? = nil, typeRefId: Swift.String? = nil, environment: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case companyId
+    case createdBy
+    case createdAt
+    case typeRefId
+    case environment
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters, b: Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetFileDownloadUrl200Response : Swift.Codable, Swift.Hashable {
+  public var url: Swift.String
+  public init(url: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case url
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetFileDownloadUrl200Response.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetFileDownloadUrl200Response.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetFileDownloadUrl200Response, b: Cloneable_Swift_Client.GetFileDownloadUrl200Response) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetFilesRequest : Swift.Codable, Swift.Hashable {
+  public var id: [Swift.String]?
+  public var filters: Cloneable_Swift_Client.GetFilesRequestFilters?
+  public var latest: Swift.String?
+  public init(id: [Swift.String]? = nil, filters: Cloneable_Swift_Client.GetFilesRequestFilters? = nil, latest: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case filters
+    case latest
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetFilesRequest.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetFilesRequest.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetFilesRequest, b: Cloneable_Swift_Client.GetFilesRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetFilesRequestFilters : Swift.Codable, Swift.Hashable {
+  public var company: Swift.String?
+  public var createdBy: Swift.String?
+  public var createdAt: Swift.String?
+  public var type: Swift.String?
+  public var typeRefId: Swift.String?
+  public var relatedObjectId: Swift.String?
+  public var relatedWorkflowId: Swift.String?
+  public var savedToCloud: Swift.Bool?
+  public var syncToEdge: Swift.Bool?
+  public init(company: Swift.String? = nil, createdBy: Swift.String? = nil, createdAt: Swift.String? = nil, type: Swift.String? = nil, typeRefId: Swift.String? = nil, relatedObjectId: Swift.String? = nil, relatedWorkflowId: Swift.String? = nil, savedToCloud: Swift.Bool? = nil, syncToEdge: Swift.Bool? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case company
+    case createdBy
+    case createdAt
+    case type
+    case typeRefId
+    case relatedObjectId
+    case relatedWorkflowId
+    case savedToCloud
+    case syncToEdge
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetFilesRequestFilters.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetFilesRequestFilters.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetFilesRequestFilters, b: Cloneable_Swift_Client.GetFilesRequestFilters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetNotificationsRequest : Swift.Codable, Swift.Hashable {
+  public var id: [Swift.String]?
+  public var filters: Cloneable_Swift_Client.GetNotificationsRequestFilters?
+  public var latest: Swift.String?
+  public init(id: [Swift.String]? = nil, filters: Cloneable_Swift_Client.GetNotificationsRequestFilters? = nil, latest: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case filters
+    case latest
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetNotificationsRequest.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetNotificationsRequest.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetNotificationsRequest, b: Cloneable_Swift_Client.GetNotificationsRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct GetNotificationsRequestFilters : Swift.Codable, Swift.Hashable {
+  public var workflowId: Swift.String
+  public init(workflowId: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case workflowId
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.GetNotificationsRequestFilters.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.GetNotificationsRequestFilters.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.GetNotificationsRequestFilters, b: Cloneable_Swift_Client.GetNotificationsRequestFilters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct InsertFileSchema : Swift.Codable, Swift.Hashable {
+  public var savedToCloud: Swift.Bool?
+  public var syncToEdge: Swift.Bool?
+  public var relatedWorkflowId: Swift.String?
+  public var relatedObjectId: Swift.String?
+  public var typeRefIds: [Swift.String]?
+  public init(savedToCloud: Swift.Bool? = nil, syncToEdge: Swift.Bool? = nil, relatedWorkflowId: Swift.String? = nil, relatedObjectId: Swift.String? = nil, typeRefIds: [Swift.String]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case savedToCloud
+    case syncToEdge
+    case relatedWorkflowId
+    case relatedObjectId
+    case typeRefIds
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.InsertFileSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.InsertFileSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.InsertFileSchema, b: Cloneable_Swift_Client.InsertFileSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NotificationRequestSchema : Swift.Codable, Swift.Hashable {
+  public enum TargetCompanyRolesChannels : Swift.String, Swift.Codable, Swift.CaseIterable {
+    case email
+    case sms
+    case dashboard
+    case mobilePush
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Cloneable_Swift_Client.NotificationRequestSchema.TargetCompanyRolesChannels]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.NotificationRequestSchema.TargetCompanyRolesChannels] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public var id: Swift.String
+  public var createdBy: Swift.String
+  public var companyId: Swift.String
+  public var workflowId: Swift.String
+  public var workflowName: Swift.String
+  public var deployedWorkflowId: Swift.String
+  public var notificationContent: Swift.String
+  public var targetCompanyRoles: [Swift.String]
+  public var targetCompanyRolesChannels: [Cloneable_Swift_Client.NotificationRequestSchema.TargetCompanyRolesChannels]
+  public var linkToWorkflow: Swift.Bool?
+  public var targetEmails: [Swift.String]?
+  public var targetSmsNumbers: [Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner]?
+  public var classification: Swift.String?
+  public init(id: Swift.String, createdBy: Swift.String, companyId: Swift.String, workflowId: Swift.String, workflowName: Swift.String, deployedWorkflowId: Swift.String, notificationContent: Swift.String, targetCompanyRoles: [Swift.String], targetCompanyRolesChannels: [Cloneable_Swift_Client.NotificationRequestSchema.TargetCompanyRolesChannels], linkToWorkflow: Swift.Bool? = nil, targetEmails: [Swift.String]? = nil, targetSmsNumbers: [Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner]? = nil, classification: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case createdBy
+    case companyId
+    case workflowId
+    case workflowName
+    case deployedWorkflowId
+    case notificationContent
+    case targetCompanyRoles
+    case targetCompanyRolesChannels
+    case linkToWorkflow
+    case targetEmails
+    case targetSmsNumbers
+    case classification
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.NotificationRequestSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.NotificationRequestSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.NotificationRequestSchema, b: Cloneable_Swift_Client.NotificationRequestSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NotificationRequestSchemaTargetSmsNumbersInner : Swift.Codable, Swift.Hashable {
+  public var countryCode: Swift.Double
+  public var number: Swift.Double
+  public init(countryCode: Swift.Double, number: Swift.Double)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case countryCode
+    case number
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner, b: Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct NotificationSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var channels: [Swift.String]
+  public var companyId: Swift.String
+  public var countryCode: Swift.Double
+  public var createdAt: Swift.String
+  public var createdBy: Swift.String
+  public var dashboardPushError: Swift.String
+  public var dashboardPushSent: Swift.Bool
+  public var deployedWorkflowId: Swift.String
+  public var email: Swift.String?
+  public var emailError: Swift.String?
+  public var emailSent: Swift.Bool?
+  public var linkToWorkflow: Swift.Bool
+  public var mobilePushError: Swift.String
+  public var mobilePushSent: Swift.Bool
+  public var notificationContent: Swift.String
+  public var notificationRequestId: Swift.String?
+  public var smsError: Swift.String?
+  public var smsNumber: Swift.Double?
+  public var smsSent: Swift.Bool?
+  public var targetUser: Swift.String
+  public var viewed: Swift.Bool
+  public var viewedAt: Swift.String?
+  public var workflowId: Swift.String
+  public var workflowName: Swift.String
+  public init(id: Swift.String, channels: [Swift.String], companyId: Swift.String, countryCode: Swift.Double, createdAt: Swift.String, createdBy: Swift.String, dashboardPushError: Swift.String, dashboardPushSent: Swift.Bool, deployedWorkflowId: Swift.String, email: Swift.String? = nil, emailError: Swift.String? = nil, emailSent: Swift.Bool? = nil, linkToWorkflow: Swift.Bool, mobilePushError: Swift.String, mobilePushSent: Swift.Bool, notificationContent: Swift.String, notificationRequestId: Swift.String? = nil, smsError: Swift.String? = nil, smsNumber: Swift.Double? = nil, smsSent: Swift.Bool? = nil, targetUser: Swift.String, viewed: Swift.Bool, viewedAt: Swift.String? = nil, workflowId: Swift.String, workflowName: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case channels
+    case companyId
+    case countryCode
+    case createdAt
+    case createdBy
+    case dashboardPushError
+    case dashboardPushSent
+    case deployedWorkflowId
+    case email
+    case emailError
+    case emailSent
+    case linkToWorkflow
+    case mobilePushError
+    case mobilePushSent
+    case notificationContent
+    case notificationRequestId
+    case smsError
+    case smsNumber
+    case smsSent
+    case targetUser
+    case viewed
+    case viewedAt
+    case workflowId
+    case workflowName
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.NotificationSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.NotificationSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.NotificationSchema, b: Cloneable_Swift_Client.NotificationSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct OrgSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var name: Swift.String
+  public var createdAt: Swift.String
+  public var updatedAt: Swift.String
+  public var roles: [Swift.String]?
+  public init(id: Swift.String, name: Swift.String, createdAt: Swift.String, updatedAt: Swift.String, roles: [Swift.String]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case name
+    case createdAt
+    case updatedAt
+    case roles
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.OrgSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.OrgSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.OrgSchema, b: Cloneable_Swift_Client.OrgSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct RetryFileUploadUrl200Response : Swift.Codable, Swift.Hashable {
+  public var uploadUrl: Swift.String
+  public init(uploadUrl: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case uploadUrl
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.RetryFileUploadUrl200Response.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.RetryFileUploadUrl200Response.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.RetryFileUploadUrl200Response, b: Cloneable_Swift_Client.RetryFileUploadUrl200Response) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SendFeedbackRequest : Swift.Codable, Swift.Hashable {
+  public var message: Swift.String
+  public var page: Swift.String
+  public init(message: Swift.String, page: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case message
+    case page
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.SendFeedbackRequest.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.SendFeedbackRequest.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.SendFeedbackRequest, b: Cloneable_Swift_Client.SendFeedbackRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct UpdateCompletedWorkflowSchema : Swift.Codable, Swift.Hashable {
+  public var name: Swift.String
+  public var finalized: Swift.Bool
+  public var finalizedAt: Foundation.Date?
+  public var updatedAt: Foundation.Date?
+  public var typeRefId: Swift.String
+  public var relatedObjectTypes: [Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner]?
+  public var relatedWorkflowTemplateId: Swift.String
+  public var auditTimeline: [Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner]?
+  public init(name: Swift.String, finalized: Swift.Bool, finalizedAt: Foundation.Date? = nil, updatedAt: Foundation.Date? = nil, typeRefId: Swift.String, relatedObjectTypes: [Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner]? = nil, relatedWorkflowTemplateId: Swift.String, auditTimeline: [Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner]? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case name
+    case finalized
+    case finalizedAt
+    case updatedAt
+    case typeRefId
+    case relatedObjectTypes
+    case relatedWorkflowTemplateId
+    case auditTimeline
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.UpdateCompletedWorkflowSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.UpdateCompletedWorkflowSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.UpdateCompletedWorkflowSchema, b: Cloneable_Swift_Client.UpdateCompletedWorkflowSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct UpdateDataObjectFieldsSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var fieldId: Swift.String
+  public var linkedObjectDisplayName: Swift.String?
+  public var linkedObjectName: Swift.String?
+  public var linkedObjectRevision: Swift.Double?
+  public var linkedObjectTemplateId: Swift.String?
+  public var modifiedAt: Foundation.Date
+  public var modifiedBy: Swift.String
+  public var storedValue: Swift.String?
+  public init(id: Swift.String, fieldId: Swift.String, linkedObjectDisplayName: Swift.String? = nil, linkedObjectName: Swift.String? = nil, linkedObjectRevision: Swift.Double? = nil, linkedObjectTemplateId: Swift.String? = nil, modifiedAt: Foundation.Date, modifiedBy: Swift.String, storedValue: Swift.String? = nil)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case fieldId
+    case linkedObjectDisplayName
+    case linkedObjectName
+    case linkedObjectRevision
+    case linkedObjectTemplateId
+    case modifiedAt
+    case modifiedBy
+    case storedValue
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.UpdateDataObjectFieldsSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.UpdateDataObjectFieldsSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.UpdateDataObjectFieldsSchema, b: Cloneable_Swift_Client.UpdateDataObjectFieldsSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct UpdateFile200Response : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public init(id: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.UpdateFile200Response.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.UpdateFile200Response.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.UpdateFile200Response, b: Cloneable_Swift_Client.UpdateFile200Response) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct UserSchema : Swift.Codable, Swift.Hashable {
+  public var id: Swift.String
+  public var email: Swift.String
+  public var firstName: Swift.String
+  public var lastName: Swift.String
+  public var confirmed: Swift.Bool
+  public var active: Swift.Bool
+  public var auth0Id: Swift.String
+  public var companyRoles: [Swift.String]
+  public var createdAt: Foundation.Date
+  public var updatedAt: Foundation.Date
+  public var companyId: Swift.String
+  public init(id: Swift.String, email: Swift.String, firstName: Swift.String, lastName: Swift.String, confirmed: Swift.Bool, active: Swift.Bool, auth0Id: Swift.String, companyRoles: [Swift.String], createdAt: Foundation.Date, updatedAt: Foundation.Date, companyId: Swift.String)
+  public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
+    case id
+    case email
+    case firstName
+    case lastName
+    case confirmed
+    case active
+    case auth0Id
+    case companyRoles
+    case createdAt
+    case updatedAt
+    case companyId
+    public init?(rawValue: Swift.String)
+    public init?(stringValue: Swift.String)
+    public init?(intValue: Swift.Int)
+    public typealias AllCases = [Cloneable_Swift_Client.UserSchema.CodingKeys]
+    public typealias RawValue = Swift.String
+    public static var allCases: [Cloneable_Swift_Client.UserSchema.CodingKeys] {
+      get
+    }
+    public var intValue: Swift.Int? {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+  }
+  public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Cloneable_Swift_Client.UserSchema, b: Cloneable_Swift_Client.UserSchema) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public init(from decoder: any Swift.Decoder) throws
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class OpenISO8601DateFormatter : Foundation.DateFormatter {
+  @objc override dynamic public func date(from string: Swift.String) -> Foundation.Date?
+  @objc deinit
+}
+public struct StringRule {
+  public var minLength: Swift.Int?
+  public var maxLength: Swift.Int?
+  public var pattern: Swift.String?
+}
+public struct NumericRule<T> where T : Swift.Comparable, T : Swift.Numeric {
+  public var minimum: T?
+  public var exclusiveMinimum: Swift.Bool
+  public var maximum: T?
+  public var exclusiveMaximum: Swift.Bool
+  public var multipleOf: T?
+}
+public enum StringValidationErrorKind : Swift.Error {
+  case minLength, maxLength, pattern
+  public static func == (a: Cloneable_Swift_Client.StringValidationErrorKind, b: Cloneable_Swift_Client.StringValidationErrorKind) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum NumericValidationErrorKind : Swift.Error {
+  case minimum, maximum, multipleOf
+  public static func == (a: Cloneable_Swift_Client.NumericValidationErrorKind, b: Cloneable_Swift_Client.NumericValidationErrorKind) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct ValidationError<T> : Swift.Error where T : Swift.Error, T : Swift.Hashable {
+  public var kinds: Swift.Set<T> {
+    get
+  }
+}
+public struct Validator {
+  public static func validate(_ string: Swift.String, against rule: Cloneable_Swift_Client.StringRule) throws -> Swift.String
+  public static func validate<T>(_ numeric: T, against rule: Cloneable_Swift_Client.NumericRule<T>) throws -> T where T : Swift.BinaryInteger
+  public static func validate<T>(_ numeric: T, against rule: Cloneable_Swift_Client.NumericRule<T>) throws -> T where T : Swift.FloatingPoint
+}
+extension Cloneable_Swift_Client.DownloadException : Swift.Equatable {}
+extension Cloneable_Swift_Client.DownloadException : Swift.Hashable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchemaAuditTimelineInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.CompletedWorkflowSchemaRelatedObjectTypesInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.CreateCompletedWorkflowSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.CreateCompletedWorkflowSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.CreateCompletedWorkflowSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.CreateFile201Response.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.CreateFile201Response.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.CreateFile201Response.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.CreateFile400Response.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.CreateFile400Response.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.CreateFile400Response.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.CreateFileSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.CreateFileSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.CreateFileSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DataObjectSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DataObjectSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DataObjectSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DataObjectSchemaFieldsInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DataObjectSchemaFieldsInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DataObjectSchemaFieldsInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerMarkerEnd.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaEdgesInnerStyle.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaObjectsInnerFieldsInnerFileInformation.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.DeployedWorkflowSchemaResourcesInnerObjectsInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.FileSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.FileSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.FileSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.FileSchemaAdditionalProperties.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.FileSchemaAdditionalProperties.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.FileSchemaAdditionalProperties.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetCompletedWorkflowsRequest.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetCompletedWorkflowsRequest.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetCompletedWorkflowsRequest.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetCompletedWorkflowsRequestFilters.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetDataObjectsPaged200Response.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetDataObjectsPaged200Response.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetDataObjectsPaged200Response.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedFiltersParameter.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.Column : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.Column : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.Column : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetDataObjectsPagedSortingParameter.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetDataObjectsRequest.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetDataObjectsRequest.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetDataObjectsRequest.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetDeployedWorkflowsRequest.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetDeployedWorkflowsRequest.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetDeployedWorkflowsRequest.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetDeployedWorkflowsRequestFilters.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetFileDownloadUrl200Response.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetFileDownloadUrl200Response.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetFileDownloadUrl200Response.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetFilesRequest.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetFilesRequest.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetFilesRequest.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetFilesRequestFilters.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetFilesRequestFilters.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetFilesRequestFilters.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetNotificationsRequest.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetNotificationsRequest.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetNotificationsRequest.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.GetNotificationsRequestFilters.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.GetNotificationsRequestFilters.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.GetNotificationsRequestFilters.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.InsertFileSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.InsertFileSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.InsertFileSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.NotificationRequestSchema.TargetCompanyRolesChannels : Swift.Equatable {}
+extension Cloneable_Swift_Client.NotificationRequestSchema.TargetCompanyRolesChannels : Swift.Hashable {}
+extension Cloneable_Swift_Client.NotificationRequestSchema.TargetCompanyRolesChannels : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.NotificationRequestSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.NotificationRequestSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.NotificationRequestSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.NotificationRequestSchemaTargetSmsNumbersInner.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.NotificationSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.NotificationSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.NotificationSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.OrgSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.OrgSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.OrgSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.RetryFileUploadUrl200Response.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.RetryFileUploadUrl200Response.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.RetryFileUploadUrl200Response.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.SendFeedbackRequest.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.SendFeedbackRequest.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.SendFeedbackRequest.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.UpdateCompletedWorkflowSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.UpdateCompletedWorkflowSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.UpdateCompletedWorkflowSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.UpdateDataObjectFieldsSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.UpdateDataObjectFieldsSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.UpdateDataObjectFieldsSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.UpdateFile200Response.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.UpdateFile200Response.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.UpdateFile200Response.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.UserSchema.CodingKeys : Swift.Equatable {}
+extension Cloneable_Swift_Client.UserSchema.CodingKeys : Swift.Hashable {}
+extension Cloneable_Swift_Client.UserSchema.CodingKeys : Swift.RawRepresentable {}
+extension Cloneable_Swift_Client.StringValidationErrorKind : Swift.Equatable {}
+extension Cloneable_Swift_Client.StringValidationErrorKind : Swift.Hashable {}
+extension Cloneable_Swift_Client.NumericValidationErrorKind : Swift.Equatable {}
+extension Cloneable_Swift_Client.NumericValidationErrorKind : Swift.Hashable {}

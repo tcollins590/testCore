@@ -1,0 +1,596 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target x86_64-apple-macos10.15 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name JXKit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreGraphics/*.CGFloat*/
+import Foundation
+import Foundation/*.Bundle*/
+import Foundation/*.NSDictionary*/
+import Foundation/*.ProcessInfo*/
+import Foundation/*.URL*/
+import JavaScriptCore
+import MachO/*.NSVersionOfRunTimeLibrary*/
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class JXCancellable {
+  @objc deinit
+  public func cancel()
+}
+extension JXKit.JXContext {
+  public func encode<T>(_ value: T) throws -> JXKit.JXValue where T : Swift.Encodable
+}
+extension JXKit.JXValue {
+  public func toDecodable<T>(ofType: T.Type) throws -> T where T : Swift.Decodable
+}
+open class JXContext {
+  public struct Configuration {
+    public static var `default`: JXKit.JXContext.Configuration
+    public var strict: Swift.Bool
+    public var isDynamicReloadEnabled: Swift.Bool {
+      get
+    }
+    public var scriptLoader: any JXKit.JXScriptLoader
+    public var log: (Swift.String) -> Swift.Void
+    public init(strict: Swift.Bool = true, scriptLoader: (any JXKit.JXScriptLoader)? = nil, log: @escaping (Swift.String) -> Swift.Void = { print($0) })
+  }
+  final public let vm: JXKit.JXVM
+  final public let configuration: JXKit.JXContext.Configuration
+  final public let contextRef: JavaScriptCore.JSGlobalContextRef
+  public init(vm: JXKit.JXVM = JXVM(), configuration: JXKit.JXContext.Configuration = .default)
+  @objc deinit
+  public var spi: (any JXKit.JXContextSPI)?
+}
+extension JXKit.JXContext {
+  @discardableResult
+  public func eval(_ script: Swift.String, this: JXKit.JXValue? = nil, root: Foundation.URL? = nil) throws -> JXKit.JXValue
+  @discardableResult
+  public func eval(resource: Swift.String, this: JXKit.JXValue? = nil, root: Foundation.URL) throws -> JXKit.JXValue
+  @discardableResult
+  public func evalClosure(_ script: Swift.String, withArguments arguments: [JXKit.JXValue] = [], this: JXKit.JXValue? = nil, root: Foundation.URL? = nil) throws -> JXKit.JXValue
+  @discardableResult
+  public func evalClosure(resource: Swift.String, withArguments arguments: [JXKit.JXValue] = [], this: JXKit.JXValue? = nil, root: Foundation.URL) throws -> JXKit.JXValue
+  @discardableResult
+  public func evalClosure(_ script: Swift.String, withArguments arguments: [Any?], this: JXKit.JXValue? = nil, root: Foundation.URL? = nil) throws -> JXKit.JXValue
+  @discardableResult
+  public func evalClosure(resource: Swift.String, withArguments arguments: [Any?], this: JXKit.JXValue? = nil, root: Foundation.URL) throws -> JXKit.JXValue
+  @discardableResult
+  public func evalModule(_ script: Swift.String, integratingExports keyPath: Swift.String? = nil, root: Foundation.URL? = nil) throws -> JXKit.JXValue
+  @discardableResult
+  public func evalModule(resource: Swift.String, integratingExports keyPath: Swift.String? = nil, root: Foundation.URL) throws -> JXKit.JXValue
+  public func checkSyntax(_ script: Swift.String, source: Swift.String? = nil, startingLineNumber: Swift.Int = 0) throws -> Swift.Bool
+  public func garbageCollect()
+  public var global: JXKit.JXValue {
+    get
+  }
+  public func withArrayBuffer<T>(source: Foundation.Data, block: (JXKit.JXValue) throws -> (T)) throws -> T
+  #if compiler(>=5.3) && $EffectfulProp
+  public var objectPrototype: JXKit.JXValue {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var datePrototype: JXKit.JXValue {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var arrayPrototype: JXKit.JXValue {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var arrayBufferPrototype: JXKit.JXValue {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var errorPrototype: JXKit.JXValue {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var promisePrototype: JXKit.JXValue {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var proxyPrototype: JXKit.JXValue {
+    get throws
+  }
+  #endif
+  public func null() -> JXKit.JXValue
+  public func undefined() -> JXKit.JXValue
+  public func boolean(_ value: Swift.Bool) -> JXKit.JXValue
+  public func number<F>(_ value: F) -> JXKit.JXValue where F : Swift.BinaryFloatingPoint
+  public func number<I>(_ value: I) -> JXKit.JXValue where I : Swift.BinaryInteger
+  public func string<S>(_ value: S) -> JXKit.JXValue where S : Swift.StringProtocol
+  public func symbol<S>(_ value: S) -> JXKit.JXValue where S : Swift.StringProtocol
+  public func object(peer: Swift.AnyObject? = nil) -> JXKit.JXValue
+  public func object(fromDictionary properties: [Swift.String : JXKit.JXValue]) throws -> JXKit.JXValue
+  public func object(fromDictionary properties: [Swift.String : Any]) throws -> JXKit.JXValue
+  public func new(_ typeName: Swift.String, withArguments arguments: [JXKit.JXValue] = []) throws -> JXKit.JXValue
+  public func new(_ typeName: Swift.String, withArguments arguments: [Any]) throws -> JXKit.JXValue
+  public func array(_ values: [JXKit.JXValue]) throws -> JXKit.JXValue
+  public func array(_ values: [Any]) throws -> JXKit.JXValue
+  public func date(_ value: Foundation.Date) throws -> JXKit.JXValue
+  public func data<D>(_ value: D) throws -> JXKit.JXValue where D : Foundation.DataProtocol
+  public func error<E>(_ error: E) throws -> JXKit.JXValue where E : Swift.Error
+  public func convey(_ value: Any?) throws -> JXKit.JXValue
+  public func json(_ string: Swift.String) throws -> JXKit.JXValue
+}
+extension JXKit.JXContext {
+  public func onScriptsDidChange(perform: @escaping (Swift.Set<Swift.String>) -> Swift.Void) -> JXKit.JXCancellable?
+  public func trackingScriptsAccess<V>(perform: @escaping () throws -> V) throws -> (accessed: Swift.Set<Swift.String>, value: V)
+}
+public protocol JXContextSPI {
+  func eval(_ script: Swift.String, this: JXKit.JXValue?, in: JXKit.JXContext) throws -> JXKit.JXValue?
+  func toJX(_ value: Any, in context: JXKit.JXContext) throws -> JXKit.JXValue?
+  func fromJX<T>(_ value: JXKit.JXValue, to type: T.Type) throws -> T?
+  func require(_ value: JXKit.JXValue) throws -> Swift.String?
+  func errorDetail(conveying type: any Any.Type) -> Swift.String?
+}
+extension JXKit.JXContextSPI {
+  public func eval(_ script: Swift.String, this: JXKit.JXValue?, in: JXKit.JXContext) throws -> JXKit.JXValue?
+  public func toJX(_ value: Any, in context: JXKit.JXContext) throws -> JXKit.JXValue?
+  public func fromJX<T>(_ value: JXKit.JXValue, to type: T.Type) throws -> T?
+  public func require(_ value: JXKit.JXValue) throws -> Swift.String?
+  public func errorDetail(conveying type: any Any.Type) -> Swift.String?
+}
+public protocol JXConvertible {
+  static func fromJX(_ value: JXKit.JXValue) throws -> Self
+  func toJX(in context: JXKit.JXContext) throws -> JXKit.JXValue
+}
+extension Swift.Decodable where Self : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Self
+}
+extension Swift.Encodable where Self : JXKit.JXConvertible {
+  public func toJX(in context: JXKit.JXContext) throws -> JXKit.JXValue
+}
+extension JXKit.JXValue : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Self
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.Optional : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Optional<Wrapped>
+  public func toJX(in context: JXKit.JXContext) throws -> JXKit.JXValue
+}
+extension Swift.Array : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Array<Element>
+  public func toJX(in context: JXKit.JXContext) throws -> JXKit.JXValue
+}
+extension Swift.Dictionary : JXKit.JXConvertible where Key == Swift.String {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Dictionary<Key, Value>
+  public func toJX(in context: JXKit.JXContext) throws -> JXKit.JXValue
+}
+extension Swift.Bool : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Bool
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.String : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.String
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.Int : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Int
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.Int32 : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Int32
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.Int64 : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Int64
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.UInt : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.UInt
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.UInt32 : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.UInt32
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.UInt64 : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.UInt64
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.Double : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Double
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Swift.Float : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Swift.Float
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension CoreFoundation.CGFloat : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> CoreFoundation.CGFloat
+  public func toJX(in context: JXKit.JXContext) -> JXKit.JXValue
+}
+extension Foundation.Date : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Foundation.Date
+  public func toJX(in context: JXKit.JXContext) throws -> JXKit.JXValue
+}
+extension Foundation.Data : JXKit.JXConvertible {
+  public static func fromJX(_ value: JXKit.JXValue) throws -> Foundation.Data
+  public func toJX(in context: JXKit.JXContext) throws -> JXKit.JXValue
+}
+public let JavaScriptCoreVersion: Swift.Int32
+public typealias JXValueRef = JavaScriptCore.JSValueRef
+public struct JXError : Swift.Error, Swift.CustomStringConvertible, @unchecked Swift.Sendable {
+  public var message: Swift.String
+  public var cause: (any Swift.Error)?
+  public var jsErrorString: Swift.String?
+  public var script: Swift.String?
+  public init(message: Swift.String, script: Swift.String? = nil)
+  public init(jsError: JXKit.JXValue, script: Swift.String? = nil)
+  public init(cause: any Swift.Error, script: Swift.String? = nil)
+  public var localizedDescription: Swift.String {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+  public static func internalError(_ message: Swift.String) -> JXKit.JXError
+  public static func contextDeallocated() -> JXKit.JXError
+  public static func valueNotArray(_ value: JXKit.JXValue) -> JXKit.JXError
+  public static func valueNotObject(_ value: JXKit.JXValue) -> JXKit.JXError
+  public static func valueNotPropertiesObject(_ value: JXKit.JXValue, property: Swift.String) -> JXKit.JXError
+  public static func valueNotDate(_ value: JXKit.JXValue) -> JXKit.JXError
+  public static func valueNotFunction(_ value: JXKit.JXValue) -> JXKit.JXError
+  public static func valueNotPromise(_ value: JXKit.JXValue) -> JXKit.JXError
+  public static func valueNotSymbol(_ value: JXKit.JXValue) -> JXKit.JXError
+}
+final public class JXListenerCollection<T> {
+  public init()
+  final public func add(_ listener: T) -> JXKit.JXCancellable
+  final public func forEach(perform: (T) throws -> Swift.Void) rethrows
+  final public var isEmpty: Swift.Bool {
+    get
+  }
+  @objc deinit
+}
+public struct JXProperty {
+  public let value: JXKit.JXValue?
+  public let writable: Swift.Bool?
+  public let getter: ((JXKit.JXValue) throws -> JXKit.JXValue)?
+  public let setter: ((JXKit.JXValue, JXKit.JXValue) throws -> Swift.Void)?
+  public var configurable: Swift.Bool?
+  public var enumerable: Swift.Bool?
+  public init()
+  public init(value: JXKit.JXValue? = nil, writable: Swift.Bool? = nil, configurable: Swift.Bool? = nil, enumerable: Swift.Bool? = nil)
+  public init(getter: ((JXKit.JXValue) throws -> JXKit.JXValue)? = nil, setter: ((JXKit.JXValue, JXKit.JXValue) throws -> Swift.Void)? = nil, configurable: Swift.Bool? = nil, enumerable: Swift.Bool? = nil)
+  public init(getter: JXKit.JXValue? = nil, setter: JXKit.JXValue? = nil, configurable: Swift.Bool? = nil, enumerable: Swift.Bool? = nil) throws
+}
+extension JXKit.JXValue {
+  public func defineProperty(_ property: JXKit.JXValue, _ descriptor: JXKit.JXProperty) throws
+  public func propertyDescriptor(_ property: JXKit.JXValue) throws -> JXKit.JXValue
+}
+public protocol JXScriptLoader {
+  var didChange: JXKit.JXListenerCollection<(Swift.Set<Foundation.URL>) -> Swift.Void>? { get }
+  func scriptURL(resource: Swift.String, relativeTo: Foundation.URL?, root: Foundation.URL) throws -> Foundation.URL
+  func loadScript(from url: Foundation.URL) throws -> Swift.String?
+}
+extension JXKit.JXScriptLoader {
+  public var didChange: JXKit.JXListenerCollection<(Swift.Set<Foundation.URL>) -> Swift.Void>? {
+    get
+  }
+  public func scriptURL(resource: Swift.String, relativeTo: Foundation.URL?, root: Foundation.URL) throws -> Foundation.URL
+  public func loadScript(from url: Foundation.URL) throws -> Swift.String?
+  public func defaultScriptURL(resource: Swift.String, relativeTo: Foundation.URL?, root: Foundation.URL) throws -> Foundation.URL
+  public func defaultLoadScript(from url: Foundation.URL) throws -> (url: Foundation.URL, script: Swift.String)
+}
+public enum JXType : Swift.Hashable {
+  case undefined
+  case null
+  case boolean
+  case number
+  case string
+  case symbol
+  case array
+  case date
+  case arrayBuffer
+  case promise
+  case error
+  case constructor
+  case function
+  case object
+  case other
+  public static func == (a: JXKit.JXType, b: JXKit.JXType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension JXKit.JXValue {
+  public var type: JXKit.JXType {
+    get
+  }
+}
+final public class JXVM {
+  public init()
+  public init(groupRef: JavaScriptCore.JSContextGroupRef)
+  @objc deinit
+}
+extension JXKit.JXVM {
+  public static let isHobbled: Swift.Bool
+}
+@_hasMissingDesignatedInitializers public class JXValue {
+  final public let context: JXKit.JXContext
+  convenience public init(context: JXKit.JXContext, value: JXKit.JXValue)
+  @objc deinit
+}
+extension JXKit.JXValue : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension JXKit.JXValue {
+  public var prototype: JXKit.JXValue {
+    get
+    set
+  }
+}
+extension JXKit.JXValue {
+  public var isUndefined: Swift.Bool {
+    get
+  }
+  public var isNull: Swift.Bool {
+    get
+  }
+  public var isNullOrUndefined: Swift.Bool {
+    get
+  }
+  public var isBoolean: Swift.Bool {
+    get
+  }
+  public var isNumber: Swift.Bool {
+    get
+  }
+  public var isString: Swift.Bool {
+    get
+  }
+  public var isObject: Swift.Bool {
+    get
+  }
+  public var isConstructor: Swift.Bool {
+    get
+  }
+  public var isFunction: Swift.Bool {
+    get
+  }
+  public var isSymbol: Swift.Bool {
+    get
+  }
+  #if compiler(>=5.3) && $EffectfulProp
+  public var isDate: Swift.Bool {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var isPromise: Swift.Bool {
+    get throws
+  }
+  #endif
+  public var isArray: Swift.Bool {
+    get
+  }
+  #if compiler(>=5.3) && $EffectfulProp
+  public var isError: Swift.Bool {
+    get throws
+  }
+  #endif
+}
+extension JXKit.JXValue {
+  #if compiler(>=5.3) && $EffectfulProp
+  public var isFrozen: Swift.Bool {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var isExtensible: Swift.Bool {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var isSealed: Swift.Bool {
+    get throws
+  }
+  #endif
+  public func freeze() throws
+  public func preventExtensions() throws
+  public func seal() throws
+}
+extension JXKit.JXValue {
+  public var bool: Swift.Bool {
+    get
+  }
+  #if compiler(>=5.3) && $EffectfulProp
+  public var double: Swift.Double {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var float: Swift.Float {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var int: Swift.Int {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var int32: Swift.Int32 {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var int64: Swift.Int64 {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var uint: Swift.UInt {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var uint32: Swift.UInt32 {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var uint64: Swift.UInt64 {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var string: Swift.String {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var date: Foundation.Date {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var dateISO: Foundation.Date {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var array: [JXKit.JXValue] {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var dictionary: [Swift.String : JXKit.JXValue] {
+    get throws
+  }
+  #endif
+}
+extension JXKit.JXValue {
+  public func convey<T>(to type: T.Type = T.self) throws -> T
+}
+extension JXKit.JXValue {
+  @discardableResult
+  public func call(withArguments arguments: [JXKit.JXValue] = [], this: JXKit.JXValue? = nil) throws -> JXKit.JXValue
+  @discardableResult
+  public func call(withArguments arguments: [Any], this: JXKit.JXValue? = nil) throws -> JXKit.JXValue
+  public func construct(withArguments arguments: [JXKit.JXValue] = []) throws -> JXKit.JXValue
+  public func construct(withArguments arguments: [Any]) throws -> JXKit.JXValue
+  @discardableResult
+  public func invokeMethod(_ name: Swift.String, withArguments arguments: [JXKit.JXValue] = []) throws -> JXKit.JXValue
+  @discardableResult
+  public func invokeMethod(_ name: Swift.String, withArguments arguments: [Any]) throws -> JXKit.JXValue
+}
+extension JXKit.JXValue {
+  public func isEqual(to other: JXKit.JXValue) -> Swift.Bool
+  public func isEqualWithTypeCoercion(to other: JXKit.JXValue) throws -> Swift.Bool
+  public func isInstance(of other: JXKit.JXValue) throws -> Swift.Bool
+}
+extension JXKit.JXValue {
+  public var properties: [Swift.String] {
+    get
+  }
+  public func hasProperty(_ property: Swift.String) -> Swift.Bool
+  @discardableResult
+  public func hasProperty(_ property: JXKit.JXValue) throws -> Swift.Bool
+  @discardableResult
+  public func deleteProperty(_ property: Swift.String) throws -> Swift.Bool
+  @discardableResult
+  public func deleteProperty(_ property: JXKit.JXValue) throws -> Swift.Bool
+  #if compiler(>=5.3) && $EffectfulProp
+  public subscript(propertyName: Swift.String) -> JXKit.JXValue {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public subscript(symbol symbol: JXKit.JXValue) -> JXKit.JXValue {
+    get throws
+  }
+  #endif
+  @discardableResult
+  public func setProperty(_ key: Swift.String, _ newValue: JXKit.JXValue) throws -> JXKit.JXValue
+  @discardableResult
+  public func setProperty(_ key: Swift.String, _ newValue: Any) throws -> JXKit.JXValue
+  @discardableResult
+  public func setProperty(symbol: JXKit.JXValue, _ newValue: JXKit.JXValue) throws -> JXKit.JXValue
+  @discardableResult
+  public func setProperty(symbol: JXKit.JXValue, _ newValue: Any) throws -> JXKit.JXValue
+  public func integrate(_ value: JXKit.JXValue) throws
+}
+extension JXKit.JXValue {
+  #if compiler(>=5.3) && $EffectfulProp
+  public var count: Swift.Int {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public subscript(index: Swift.Int) -> JXKit.JXValue {
+    get throws
+  }
+  #endif
+  public func setElement(_ element: JXKit.JXValue, at index: Swift.Int) throws
+  public func setElement(_ element: Any, at index: Swift.Int) throws
+  public func addElement(_ object: JXKit.JXValue) throws
+  public func addElement(_ object: Any) throws
+  public func insertElement(_ object: JXKit.JXValue, at index: Swift.Int) throws
+  public func insertElement(_ object: Any, at index: Swift.Int) throws
+}
+extension JXKit.JXValue {
+  public func keyPath(_ keyPath: Swift.String, createIntermediates: Swift.Bool = false) throws -> (parent: JXKit.JXValue, property: Swift.String)
+}
+extension JXKit.JXValue {
+  public func toJSON(indent: Swift.Int = 0) throws -> Swift.String
+}
+extension JXKit.JXValue {
+  public func proxy(get getter: @escaping JXKit.JXFunction, set setter: @escaping JXKit.JXFunction) throws -> JXKit.JXValue
+}
+extension JXKit.JXValue {
+  convenience public init(newArrayBufferWithLength length: Swift.Int, in context: JXKit.JXContext) throws
+  convenience public init(newArrayBufferWithBytesNoCopy bytes: Swift.UnsafeMutableRawBufferPointer, deallocator: @escaping (Swift.UnsafeMutableRawBufferPointer) -> Swift.Void, in context: JXKit.JXContext) throws
+  convenience public init<S>(newArrayBufferWithBytes bytes: S, in context: JXKit.JXContext) throws where S : Foundation.DataProtocol
+}
+extension JXKit.JXValue {
+  #if compiler(>=5.3) && $EffectfulProp
+  public var isArrayBuffer: Swift.Bool {
+    get throws
+  }
+  #endif
+  #if compiler(>=5.3) && $EffectfulProp
+  public var byteLength: Swift.Int {
+    get throws
+  }
+  #endif
+  public func copyBytes() throws -> Foundation.Data?
+}
+public typealias JXFunction = (_ ctx: JXKit.JXContext, _ obj: JXKit.JXValue?, _ args: [JXKit.JXValue]) throws -> JXKit.JXValue
+extension JXKit.JXValue {
+  convenience public init(newFunctionIn context: JXKit.JXContext, callback: @escaping JXKit.JXFunction)
+  #if compiler(>=5.3) && $AsyncAwait
+  public func awaitPromise(priority: _Concurrency.TaskPriority = .medium) async throws -> JXKit.JXValue
+  #endif
+  public static func createPromise(in context: JXKit.JXContext) throws -> JXKit.JXPromise
+  convenience public init(newPromiseIn context: JXKit.JXContext, executor: (JXKit.JXContext, _ resolve: JXKit.JXValue, _ reject: JXKit.JXValue) throws -> ()) throws
+  convenience public init(newPromiseResolvedWithResult result: JXKit.JXValue, in context: JXKit.JXContext) throws
+  convenience public init(newPromiseRejectedWithResult reason: JXKit.JXValue, in context: JXKit.JXContext) throws
+}
+public typealias JXPromise = (promise: JXKit.JXValue, resolveFunction: JXKit.JXValue, rejectFunction: JXKit.JXValue)
+extension JXKit.JXValue {
+  public var peer: Swift.AnyObject? {
+    get
+  }
+  public var cause: (any Swift.Error)? {
+    get
+  }
+}
+public let JXKitBundle: Foundation.Bundle
+public let JXKitInfo: Foundation.NSDictionary?
+public let JXKitBundleIdentifier: Swift.String!
+public let JXKitVersion: Swift.String!
+public let (JXKitVersionMajor, JXKitVersionMinor, JXKitVersionPatch): (Swift.Int?, Swift.Int?, Swift.Int?)
+public let JXKitVersionNumber: Swift.Int
