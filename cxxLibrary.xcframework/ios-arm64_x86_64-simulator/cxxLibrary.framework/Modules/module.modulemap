@@ -1,0 +1,4 @@
+framework module cxxLibrary {
+    umbrella header "cxxLibrary.h"
+    export *
+}

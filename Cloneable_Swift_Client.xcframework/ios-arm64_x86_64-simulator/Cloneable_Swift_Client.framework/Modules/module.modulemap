@@ -1,0 +1,4 @@
+framework module Cloneable_Swift_Client {
+    header "Cloneable_Swift_Client-Swift.h"
+    export *
+}

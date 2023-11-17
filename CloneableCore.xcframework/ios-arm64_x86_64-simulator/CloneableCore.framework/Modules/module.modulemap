@@ -1,0 +1,5 @@
+framework module CloneableCore {
+    header "CloneableCore-Swift.h"
+    export *
+    link framework "cxxLibrary"
+}

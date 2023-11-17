@@ -11,48 +11,48 @@ import _SwiftConcurrencyShims
   public let value: Any
   public init<T>(_ value: T?)
 }
-extension AnyCodable.AnyCodable : AnyCodable._AnyEncodable, AnyCodable._AnyDecodable {
+extension AnyCodable : _AnyEncodable, _AnyDecodable {
 }
-extension AnyCodable.AnyCodable : Swift.Equatable {
-  public static func == (lhs: AnyCodable.AnyCodable, rhs: AnyCodable.AnyCodable) -> Swift.Bool
+extension AnyCodable : Swift.Equatable {
+  public static func == (lhs: AnyCodable, rhs: AnyCodable) -> Swift.Bool
 }
-extension AnyCodable.AnyCodable : Swift.CustomStringConvertible {
+extension AnyCodable : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-extension AnyCodable.AnyCodable : Swift.CustomDebugStringConvertible {
+extension AnyCodable : Swift.CustomDebugStringConvertible {
   public var debugDescription: Swift.String {
     get
   }
 }
-extension AnyCodable.AnyCodable : Swift.ExpressibleByNilLiteral {
+extension AnyCodable : Swift.ExpressibleByNilLiteral {
 }
-extension AnyCodable.AnyCodable : Swift.ExpressibleByBooleanLiteral {
+extension AnyCodable : Swift.ExpressibleByBooleanLiteral {
   public typealias BooleanLiteralType = Swift.Bool
 }
-extension AnyCodable.AnyCodable : Swift.ExpressibleByIntegerLiteral {
+extension AnyCodable : Swift.ExpressibleByIntegerLiteral {
   public typealias IntegerLiteralType = Swift.Int
 }
-extension AnyCodable.AnyCodable : Swift.ExpressibleByFloatLiteral {
+extension AnyCodable : Swift.ExpressibleByFloatLiteral {
   public typealias FloatLiteralType = Swift.Double
 }
-extension AnyCodable.AnyCodable : Swift.ExpressibleByStringLiteral {
+extension AnyCodable : Swift.ExpressibleByStringLiteral {
   public typealias ExtendedGraphemeClusterLiteralType = Swift.String
   public typealias StringLiteralType = Swift.String
   public typealias UnicodeScalarLiteralType = Swift.String
 }
-extension AnyCodable.AnyCodable : Swift.ExpressibleByStringInterpolation {
+extension AnyCodable : Swift.ExpressibleByStringInterpolation {
   public typealias StringInterpolation = Swift.DefaultStringInterpolation
 }
-extension AnyCodable.AnyCodable : Swift.ExpressibleByArrayLiteral {
+extension AnyCodable : Swift.ExpressibleByArrayLiteral {
   public typealias ArrayLiteralElement = Any
 }
-extension AnyCodable.AnyCodable : Swift.ExpressibleByDictionaryLiteral {
+extension AnyCodable : Swift.ExpressibleByDictionaryLiteral {
   public typealias Key = Swift.AnyHashable
   public typealias Value = Any
 }
-extension AnyCodable.AnyCodable : Swift.Hashable {
+extension AnyCodable : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
@@ -67,25 +67,25 @@ internal protocol _AnyDecodable {
   var value: Any { get }
   init<T>(_ value: T?)
 }
-extension AnyCodable.AnyDecodable : AnyCodable._AnyDecodable {
+extension AnyDecodable : _AnyDecodable {
 }
-extension AnyCodable._AnyDecodable {
+extension _AnyDecodable {
   public init(from decoder: any Swift.Decoder) throws
 }
-extension AnyCodable.AnyDecodable : Swift.Equatable {
-  public static func == (lhs: AnyCodable.AnyDecodable, rhs: AnyCodable.AnyDecodable) -> Swift.Bool
+extension AnyDecodable : Swift.Equatable {
+  public static func == (lhs: AnyDecodable, rhs: AnyDecodable) -> Swift.Bool
 }
-extension AnyCodable.AnyDecodable : Swift.CustomStringConvertible {
+extension AnyDecodable : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-extension AnyCodable.AnyDecodable : Swift.CustomDebugStringConvertible {
+extension AnyDecodable : Swift.CustomDebugStringConvertible {
   public var debugDescription: Swift.String {
     get
   }
 }
-extension AnyCodable.AnyDecodable : Swift.Hashable {
+extension AnyDecodable : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
@@ -100,51 +100,51 @@ internal protocol _AnyEncodable {
   var value: Any { get }
   init<T>(_ value: T?)
 }
-extension AnyCodable.AnyEncodable : AnyCodable._AnyEncodable {
+extension AnyEncodable : _AnyEncodable {
 }
-extension AnyCodable._AnyEncodable {
+extension _AnyEncodable {
   public func encode(to encoder: any Swift.Encoder) throws
 }
-extension AnyCodable.AnyEncodable : Swift.Equatable {
-  public static func == (lhs: AnyCodable.AnyEncodable, rhs: AnyCodable.AnyEncodable) -> Swift.Bool
+extension AnyEncodable : Swift.Equatable {
+  public static func == (lhs: AnyEncodable, rhs: AnyEncodable) -> Swift.Bool
 }
-extension AnyCodable.AnyEncodable : Swift.CustomStringConvertible {
+extension AnyEncodable : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
 }
-extension AnyCodable.AnyEncodable : Swift.CustomDebugStringConvertible {
+extension AnyEncodable : Swift.CustomDebugStringConvertible {
   public var debugDescription: Swift.String {
     get
   }
 }
-extension AnyCodable.AnyEncodable : Swift.ExpressibleByNilLiteral {
+extension AnyEncodable : Swift.ExpressibleByNilLiteral {
 }
-extension AnyCodable.AnyEncodable : Swift.ExpressibleByBooleanLiteral {
+extension AnyEncodable : Swift.ExpressibleByBooleanLiteral {
   public typealias BooleanLiteralType = Swift.Bool
 }
-extension AnyCodable.AnyEncodable : Swift.ExpressibleByIntegerLiteral {
+extension AnyEncodable : Swift.ExpressibleByIntegerLiteral {
   public typealias IntegerLiteralType = Swift.Int
 }
-extension AnyCodable.AnyEncodable : Swift.ExpressibleByFloatLiteral {
+extension AnyEncodable : Swift.ExpressibleByFloatLiteral {
   public typealias FloatLiteralType = Swift.Double
 }
-extension AnyCodable.AnyEncodable : Swift.ExpressibleByStringLiteral {
+extension AnyEncodable : Swift.ExpressibleByStringLiteral {
   public typealias ExtendedGraphemeClusterLiteralType = Swift.String
   public typealias StringLiteralType = Swift.String
   public typealias UnicodeScalarLiteralType = Swift.String
 }
-extension AnyCodable.AnyEncodable : Swift.ExpressibleByStringInterpolation {
+extension AnyEncodable : Swift.ExpressibleByStringInterpolation {
   public typealias StringInterpolation = Swift.DefaultStringInterpolation
 }
-extension AnyCodable.AnyEncodable : Swift.ExpressibleByArrayLiteral {
+extension AnyEncodable : Swift.ExpressibleByArrayLiteral {
   public typealias ArrayLiteralElement = Any
 }
-extension AnyCodable.AnyEncodable : Swift.ExpressibleByDictionaryLiteral {
+extension AnyEncodable : Swift.ExpressibleByDictionaryLiteral {
   public typealias Key = Swift.AnyHashable
   public typealias Value = Any
 }
-extension AnyCodable._AnyEncodable {
+extension _AnyEncodable {
   public init(nilLiteral _: ())
   public init(booleanLiteral value: Swift.Bool)
   public init(integerLiteral value: Swift.Int)
@@ -154,7 +154,7 @@ extension AnyCodable._AnyEncodable {
   public init(arrayLiteral elements: Any...)
   public init(dictionaryLiteral elements: (Swift.AnyHashable, Any)...)
 }
-extension AnyCodable.AnyEncodable : Swift.Hashable {
+extension AnyEncodable : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
