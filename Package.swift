@@ -10,6 +10,7 @@ let package = Package(
             name: "CloneableCore",
             targets: ["CloneableCore",
                      "Alamofire",
+                     "cxxLibrary",
                      "JXKit",
                      "SQLite",
                      "Cloneable_Swift_Client",
@@ -26,6 +27,10 @@ let package = Package(
         .binaryTarget(
             name: "AnyCodable",
             path: "./AnyCodable.xcframework"
+        ),
+        .binaryTarget(
+            name: "cxxLibrary",
+            path: "./cxxLibrary.xcframework"
         ),
         .binaryTarget(
             name: "JXKit",
