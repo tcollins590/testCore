@@ -119,8 +119,8 @@ public protocol RequestBuilderFactory {
 }
 @_hasMissingDesignatedInitializers open class OpenapiAPI {
   @discardableResult
-  open class func getOpenAPIJSON(apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: AnyCodable?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
-  open class func getOpenAPIJSONWithRequestBuilder() -> Cloneable_Swift_Client.RequestBuilder<AnyCodable>
+  open class func getOpenAPIJSON(apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: AnyCodable.AnyCodable?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
+  open class func getOpenAPIJSONWithRequestBuilder() -> Cloneable_Swift_Client.RequestBuilder<AnyCodable.AnyCodable>
   @discardableResult
   open class func getOpenAPIPage(apiResponseQueue: Dispatch.DispatchQueue = Cloneable_Swift_ClientAPI.apiResponseQueue, completion: @escaping ((_ data: Swift.Void?, _ error: (any Swift.Error)?) -> Swift.Void)) -> Cloneable_Swift_Client.RequestTask
   open class func getOpenAPIPageWithRequestBuilder() -> Cloneable_Swift_Client.RequestBuilder<Swift.Void>
@@ -773,7 +773,7 @@ public struct DeployedWorkflowSchemaComponentsInner : Swift.Codable, Swift.Hasha
   public var userCustomizedTitle: Swift.String?
   public var userCustomizedInstructions: Swift.String?
   public var dynamicComponentId: Swift.String
-  public var additionalProperties: [Swift.String : AnyCodable]?
+  public var additionalProperties: [Swift.String : AnyCodable.AnyCodable]?
   public var nextButtonInBar: Swift.Bool?
   public var nextButtonInBarText: Swift.String?
   public var iosHwRequirements: [Swift.String]?
@@ -784,7 +784,7 @@ public struct DeployedWorkflowSchemaComponentsInner : Swift.Codable, Swift.Hasha
   public var implementationUrl: Swift.String
   public var inputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner]
   public var outputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner]
-  public init(id: Swift.String, availableToAllCompanies: Swift.Bool, availableDevices: [Swift.String], builderCompatibility: Swift.String, componentId: Swift.String, componentType: Swift.String, revision: Swift.Double, title: Swift.String, type: Swift.String, userCustomizedTitle: Swift.String? = nil, userCustomizedInstructions: Swift.String? = nil, dynamicComponentId: Swift.String, additionalProperties: [Swift.String : AnyCodable]? = nil, nextButtonInBar: Swift.Bool? = nil, nextButtonInBarText: Swift.String? = nil, iosHwRequirements: [Swift.String]? = nil, customizableParameters: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner], componentDescription: Swift.String, dynamicComponentRenderer: Swift.Bool, useCustomViewForParams: Swift.Bool? = nil, implementationUrl: Swift.String, inputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner], outputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner])
+  public init(id: Swift.String, availableToAllCompanies: Swift.Bool, availableDevices: [Swift.String], builderCompatibility: Swift.String, componentId: Swift.String, componentType: Swift.String, revision: Swift.Double, title: Swift.String, type: Swift.String, userCustomizedTitle: Swift.String? = nil, userCustomizedInstructions: Swift.String? = nil, dynamicComponentId: Swift.String, additionalProperties: [Swift.String : AnyCodable.AnyCodable]? = nil, nextButtonInBar: Swift.Bool? = nil, nextButtonInBarText: Swift.String? = nil, iosHwRequirements: [Swift.String]? = nil, customizableParameters: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner], componentDescription: Swift.String, dynamicComponentRenderer: Swift.Bool, useCustomViewForParams: Swift.Bool? = nil, implementationUrl: Swift.String, inputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerInputsInner], outputs: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInner])
   public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
     case id
     case availableToAllCompanies
@@ -842,13 +842,13 @@ public struct DeployedWorkflowSchemaComponentsInnerCustomizableParametersInner :
   public var paramGroup: Swift.String?
   public var paramInputType: Swift.String?
   public var paramName: Swift.String
-  public var selectedValue: AnyCodable?
+  public var selectedValue: AnyCodable.AnyCodable?
   public var userCustomizable: Swift.Bool?
   public var relatedInputDynamicId: Swift.String?
   public var relatedOutputDynamicId: Swift.String?
   public var selectedValueIsArray: Swift.Bool?
-  public var selectedValueArray: [AnyCodable]?
-  public init(paramDataType: Swift.String, paramDescription: Swift.String, paramId: Swift.String, paramGroup: Swift.String? = nil, paramInputType: Swift.String? = nil, paramName: Swift.String, selectedValue: AnyCodable? = nil, userCustomizable: Swift.Bool? = nil, relatedInputDynamicId: Swift.String? = nil, relatedOutputDynamicId: Swift.String? = nil, selectedValueIsArray: Swift.Bool? = nil, selectedValueArray: [AnyCodable]? = nil)
+  public var selectedValueArray: [AnyCodable.AnyCodable]?
+  public init(paramDataType: Swift.String, paramDescription: Swift.String, paramId: Swift.String, paramGroup: Swift.String? = nil, paramInputType: Swift.String? = nil, paramName: Swift.String, selectedValue: AnyCodable.AnyCodable? = nil, userCustomizable: Swift.Bool? = nil, relatedInputDynamicId: Swift.String? = nil, relatedOutputDynamicId: Swift.String? = nil, selectedValueIsArray: Swift.Bool? = nil, selectedValueArray: [AnyCodable.AnyCodable]? = nil)
   public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
     case paramDataType
     case paramDescription
@@ -899,8 +899,8 @@ public struct DeployedWorkflowSchemaComponentsInnerInputsInner : Swift.Codable, 
   public var _required: Swift.Bool?
   public var acceptsArray: Swift.Bool?
   public var trigger: Swift.Bool?
-  public var additionalProperties: [Swift.String : AnyCodable]
-  public init(dynamicInputId: Swift.String, inputClassification: Swift.String? = nil, group: Swift.String? = nil, inputDataType: Swift.String, inputDescription: Swift.String? = nil, inputId: Swift.String, inputName: Swift.String, _required: Swift.Bool? = nil, acceptsArray: Swift.Bool? = nil, trigger: Swift.Bool? = nil, additionalProperties: [Swift.String : AnyCodable])
+  public var additionalProperties: [Swift.String : AnyCodable.AnyCodable]
+  public init(dynamicInputId: Swift.String, inputClassification: Swift.String? = nil, group: Swift.String? = nil, inputDataType: Swift.String, inputDescription: Swift.String? = nil, inputId: Swift.String, inputName: Swift.String, _required: Swift.Bool? = nil, acceptsArray: Swift.Bool? = nil, trigger: Swift.Bool? = nil, additionalProperties: [Swift.String : AnyCodable.AnyCodable])
   public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
     case dynamicInputId
     case inputClassification
@@ -951,9 +951,9 @@ public struct DeployedWorkflowSchemaComponentsInnerOutputsInner : Swift.Codable,
   public var _required: Swift.Bool?
   public var outputsArray: Swift.Bool?
   public var outputImmediatelyUserDefinable: Swift.Bool?
-  public var additionalProperties: [Swift.String : AnyCodable]
+  public var additionalProperties: [Swift.String : AnyCodable.AnyCodable]
   public var outputConnections: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner]?
-  public init(dynamicOutputId: Swift.String, group: Swift.String? = nil, outputImmediately: Swift.Bool? = nil, outputClassification: Swift.String? = nil, outputDataType: Swift.String, outputDescription: Swift.String? = nil, outputId: Swift.String, outputName: Swift.String, _required: Swift.Bool? = nil, outputsArray: Swift.Bool? = nil, outputImmediatelyUserDefinable: Swift.Bool? = nil, additionalProperties: [Swift.String : AnyCodable], outputConnections: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner]? = nil)
+  public init(dynamicOutputId: Swift.String, group: Swift.String? = nil, outputImmediately: Swift.Bool? = nil, outputClassification: Swift.String? = nil, outputDataType: Swift.String, outputDescription: Swift.String? = nil, outputId: Swift.String, outputName: Swift.String, _required: Swift.Bool? = nil, outputsArray: Swift.Bool? = nil, outputImmediatelyUserDefinable: Swift.Bool? = nil, additionalProperties: [Swift.String : AnyCodable.AnyCodable], outputConnections: [Cloneable_Swift_Client.DeployedWorkflowSchemaComponentsInnerOutputsInnerOutputConnectionsInner]? = nil)
   public enum CodingKeys : Swift.String, Swift.CodingKey, Swift.CaseIterable {
     case dynamicOutputId
     case group
